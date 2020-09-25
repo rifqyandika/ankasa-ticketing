@@ -85,7 +85,7 @@ input {
   border-radius: 0%;
   border: 0px;
   border-bottom: 2px #d2c2ff solid !important;
-  margin: 10px;
+  margin: 10px 0px;
 }
 input::-webkit-input-placeholder {
   color: #d2c2ff;
