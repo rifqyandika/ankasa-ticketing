@@ -10,26 +10,38 @@
             <img src="../assets/icons/ankasa-smallicon.png" />
             <h2>Ankasa</h2>
           </div>
-          <div class="form-group row rowform">
+          <div class="form-group row rowform" v-if="forgotpassword">
             <div class="col-sm-10 align-middle">
-              <h1>Register</h1>
-              <input type="text" class="form-control" placeholder="Full Name" />
+              <h1>Forgot Password</h1>
               <input type="email" class="form-control" placeholder="Email" />
+              <button type="button" class="btn btn-primary">Send</button>
+              <p>You'll get message soon on your email</p>
+            </div>
+          </div>
+          <div class="form-group row rowform" v-else>
+            <div class="col-sm-10 align-middle">
+              <h1>Login</h1>
+              <input type="text" class="form-control" placeholder="Username" />
               <input
                 type="password"
                 class="form-control"
                 placeholder="Password"
               />
-              <button type="button" class="btn btn-primary">Sign Up</button>
-              <div class="checkboks">
-                <input id="term" type="checkbox" />
-                <label for="term">Accept term and Conditions</label>
-              </div>
+              <button type="button" class="btn btn-primary">Sign In</button>
+              <p>Do you forgot your password?</p>
+              <p @click="forgotpassword=true" class="text-center linkk" >Tap here for reset</p>
+              <br>
+              <br>
               <hr />
-              <p>Already have account?</p>
+              <p class="p-bott">or sign in with</p>
+              <div class="signinother">
               <button type="button" class="btn btn-outline-primary">
-                Sign In
+                <img src="../assets/icons/google.png">
               </button>
+              <button type="button" class="btn btn-outline-primary">
+                <img src="../assets/icons/facebook.png">
+              </button>
+              </div>
             </div>
           </div>
         </div>
@@ -39,7 +51,13 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data () {
+    return {
+      forgotpassword: false
+    }
+  }
+}
 </script>
 
 <style scoped>
@@ -58,7 +76,7 @@ export default {}
 .rowform {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   height: 100%;
 }
 .col-sm-10 {
@@ -84,7 +102,7 @@ h1 {
 input {
   border-radius: 0%;
   border: 0px;
-  border-bottom: 2pxrgba(210, 194, 255, 0.68) solid !important;
+  border-bottom: 2px rgba(210, 194, 255, 0.68) solid !important;
   margin: 10px 0px;
 }
 input::-webkit-input-placeholder {
@@ -114,22 +132,44 @@ div.title {
     box-shadow: 0px 8px 10px rgba(35, 149, 255, 0.3);
     border-radius: 10px;
 }
-label {
-  font-size: 16px;
+.btn-outline-primary {
+    box-sizing: border-box;
+    border-radius: 6px;
+    width: 95px;
+    margin: 5px 5px
+}
+.signinother {
+    display: flex;
+    justify-content: center;
+}
+.signinother button img{
+    width: 20px;
+    height: 20px;
 }
 .checkboks{
     display: inline-flex;
     align-items: center;
   margin-bottom: 20px;
 }
-label, p {
+p {
+  font-size: 16px;
+  font-family: "Lato", sans-serif;
+  text-align: center;
+  color: #595959;
+  margin: 3px 0px
+}
+p.p-bott {
   font-size: 14px;
   font-family: "Lato", sans-serif;
   text-align: center;
   color: #595959;
+  margin: 5px 0px
 }
-input[type='checkbox'] {
-    margin-right: 10px
+.linkk{
+    text-align: center;
+    cursor: pointer;
+    color: #2395FF;
+    text-decoration: underline;
 }
 @media (max-width: 576px) {
     .form {
