@@ -106,7 +106,7 @@ div.title {
   font-size: 15px;
   font-family: "Poppins", sans-serif;
   font-weight: 700;
-  margin: 10px;
+  margin: 10px 0px;
   border-radius: 10px;
 }
 .btn-primary {
@@ -127,6 +127,9 @@ label, p {
   font-family: "Lato", sans-serif;
   text-align: center;
   color: #d2c2ff;
+}
+input[type='checkbox'] {
+    margin-right: 10px
 }
 @media (max-width: 576px) {
     .form {
