@@ -21,7 +21,7 @@
           <div class="form-group row rowform" v-else>
             <div class="col-sm-10 align-middle">
               <h1>Login</h1>
-              <input type="text" class="form-control" placeholder="Username" />
+              <input type="email" class="form-control" placeholder="Email" />
               <input
                 type="password"
                 class="form-control"

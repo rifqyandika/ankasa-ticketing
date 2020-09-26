@@ -3,7 +3,7 @@
     <div class="container-fluid" id="container">
       <div class="row mainrow">
         <div class="col-sm-8 d-none d-sm-flex jumbotr">
-            <img src="../assets/icons/illustration.png">
+          <img src="../assets/icons/illustration.png" />
         </div>
         <div class="col-sm-4 col-xs-12 form">
           <div class="title">
@@ -27,9 +27,9 @@
               </div>
               <hr />
               <p>Already have account?</p>
-              <button type="button" class="btn btn-outline-primary">
+              <router-link to="/login" type="button" class="btn btn-outline-primary">
                 Sign In
-              </button>
+              </router-link>
             </div>
           </div>
         </div>
@@ -62,7 +62,7 @@ export default {}
   height: 100%;
 }
 .col-sm-10 {
-    align-self: center;
+  align-self: center;
 }
 .jumbotr {
   display: flex;
@@ -84,11 +84,11 @@ h1 {
 input {
   border-radius: 0%;
   border: 0px;
-  border-bottom: 2pxrgba(210, 194, 255, 0.68) solid !important;
+  border-bottom: 2px rgba(210, 194, 255, 0.68) solid !important;
   margin: 10px 0px;
 }
 input::-webkit-input-placeholder {
-  color: #9B96AB;
+  color: #9b96ab;
 }
 div.title {
   top: 20px;
@@ -110,30 +110,39 @@ div.title {
   border-radius: 10px;
 }
 .btn-primary {
-    background: #2395FF;
-    box-shadow: 0px 8px 10px rgba(35, 149, 255, 0.3);
-    border-radius: 10px;
+  background: #2395ff;
+  box-shadow: 0px 8px 10px rgba(35, 149, 255, 0.3);
+  border-radius: 10px;
 }
 label {
   font-size: 16px;
 }
-.checkboks{
-    display: inline-flex;
-    align-items: center;
+.checkboks {
+  display: inline-flex;
+  align-items: center;
   margin-bottom: 20px;
+  width: 100%;
+  justify-content: center;
 }
-label, p {
+label,
+p {
   font-size: 14px;
   font-family: "Lato", sans-serif;
   text-align: center;
   color: #595959;
 }
-input[type='checkbox'] {
-    margin-right: 10px
+input[type="checkbox"] {
+  margin-right: 10px;
 }
 @media (max-width: 576px) {
-    .form {
-  padding: 10%;
+  .form {
+    padding: 10%;
+  }
+  .rowform {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
 }
- }
+}
 </style>
