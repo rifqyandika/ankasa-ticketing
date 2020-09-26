@@ -158,4 +158,9 @@ a:hover {
 .outer {
   padding: 0px 100px;
 }
+@media (max-width: 576px) {
+  .outer {
+  padding: 0px 20px;
+}
+}
 </style>
