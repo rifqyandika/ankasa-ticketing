@@ -1,7 +1,7 @@
 <template>
   <footer class="mt-5">
     <div class="row">
-      <div class="col-12 col-md-9  col-lg-4 ">
+      <div class="col-12 col-md-9  col-lg-5 ">
         <div class="row">
           <div class="col pl-lg-0">
             <img src="..\..\src\assets\footer\LogoAnkasa\Group 43 (1).png" />
@@ -39,7 +39,7 @@
           </div>
         </div>
       </div>
-      <div class="col-12 col-md-9 col-lg mb-3">
+      <div class="col-12 col-md-9 col-lg-3 mb-3">
         <div class="row choseCat mt-4 mt-lg-0">
           <div class="col pl-lg-0 mt-lg-2">Download Angkasa app</div>
         </div>
@@ -102,11 +102,11 @@
           Jakarta Indonesia
         </span>
       </div>
-      <div class="col mt-3 mt-sm-0 pl-lg-0 col-lg-9">
+      <div class="col mt-3 mt-sm-0 pl-lg-0 col-lg-10">
         <p class="copyRight">© Ankasa. All Rights Reserved.</p>
       </div>
       <div
-        class="iconMaps col pl-lg-0 d-none d-sm-block mt-n1 text-sm-right text-lg-left"
+        class="iconMaps  col pl-lg-0 d-none d-sm-block mt-n1 text-sm-right text-lg-left"
       >
         <span
           ><img
