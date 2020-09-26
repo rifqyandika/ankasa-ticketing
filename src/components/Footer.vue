@@ -102,18 +102,17 @@
           Jakarta Indonesia
         </span>
       </div>
-      <div class="col mt-3 mt-sm-0 pl-lg-0 col-lg-10">
+      <div class="col  mt-3 mt-sm-0 pl-lg-0 col-lg-10">
         <p class="copyRight">© Ankasa. All Rights Reserved.</p>
       </div>
       <div
-        class="iconMaps  col pl-lg-0 d-none d-sm-block mt-n1 text-sm-right text-lg-left"
+        class="iconMaps mr-md-2 pr-md-1 col pl-lg-0 d-none d-sm-block mt-n1 text-sm-right text-lg-left"
       >
         <span
           ><img
-            class="mr-1 md-md-0 mr-lg-1"
+            class="mr-1 mr-lg-1"
             src="..\..\src\assets\footer\Location\map-pin.png"
-          />
-          Jakarta Indonesia
+          />Jakarta Indonesia
         </span>
       </div>
     </div>
