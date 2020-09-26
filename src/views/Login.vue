@@ -27,7 +27,7 @@
                 class="form-control"
                 placeholder="Password"
               />
-              <button type="button" class="btn btn-primary">Sign In</button>
+              <button type="submit" class="btn btn-primary" @click="coba()">Sign In</button>
               <p>Do you forgot your password?</p>
               <p @click="forgotpassword=true" class="text-center linkk" >Tap here for reset</p>
               <br>
@@ -43,6 +43,9 @@
               </button>
               </div>
             </div>
+            <div class="err erro" ref="err">
+              A simple primary alert—check it out!
+            </div>
           </div>
         </div>
       </div>
@@ -54,7 +57,17 @@
 export default {
   data () {
     return {
-      forgotpassword: false
+      forgotpassword: false,
+      error: false
+    }
+  },
+  methods: {
+    coba () {
+      const err = this.$refs.err.classList
+      err.contains('err') ? err.remove('err') : err.add('err')
+      setTimeout(function () {
+        err.contains('err') ? err.remove('err') : err.add('err')
+      }, 1000)
     }
   }
 }
@@ -65,6 +78,24 @@ export default {
 * {
   margin: 0px;
   padding: 0px;
+}
+.err {
+  display: none !important ;
+
+}
+.erro {
+  background: rgba(255, 1, 1, 0.377);
+  color: rgb(88, 0, 0);
+  height: 70px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px 0px 0px 5px;
+  font-weight: 500;
+  position: fixed;
+  top: 100px;
+  right: 0px;
 }
 #container {
   height: 100vh;

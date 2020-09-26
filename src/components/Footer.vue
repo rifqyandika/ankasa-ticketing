@@ -1,5 +1,5 @@
 <template>
-  <footer class="mt-5">
+  <footer class="mt-5 outer">
     <div class="row">
       <div class="col-12 col-md-9  col-lg-5 ">
         <div class="row">
@@ -154,5 +154,8 @@ a:hover {
   font-size: 14px;
 
   color: #6b6b6b;
+}
+.outer {
+  padding: 0px 100px;
 }
 </style>
