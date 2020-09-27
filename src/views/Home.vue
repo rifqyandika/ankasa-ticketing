@@ -1,13 +1,17 @@
 <template>
-  <div class="container-fluid">
+  <div class="ml-0 mr-0 container-fluid">
     <Navbar />
+    <!-- background-header -->
     <div class="row marginBody bgHeader">
-      <div class="col pictHeader1 pl-0">
-        <img class="img-fluid" src="..\..\src\assets\home\Pict1.jpg" />
-      </div>
-      <div class="col  pl-0">
+      <div class="col pl-0 ">
         <img
-          class="img-fluid pictHeader2"
+          class="img-fluid pictHeader1"
+          src="..\..\src\assets\home\Pict1.jpg"
+        />
+      </div>
+      <div class="col pl-0">
+        <img
+          class="mt-5 mt-lg img-fluid pictHeader2"
           src="..\..\src\assets\home\Pict2.jpg"
         />
         <img
@@ -16,15 +20,16 @@
         />
       </div>
     </div>
+    <!-- teksHeader -->
     <div class="container">
       <div class="row">
-        <div class="col-5 pl-lg-0">
+        <div class="col-12 col-lg-5 pl-lg-0">
           <p class="textHeader">
             Find your <span class="textHeader2">Flight</span>
           </p>
           <p class="mt-n3 smallTextHeader">and explore the world with us</p>
         </div>
-        <div class="col boxBuy">
+        <div class="mx-lg-1 col-12 col-lg-4 boxBuy mx-auto">
           <div class="mx-3 my-1">
             <div class="row">
               <div class="col mt-3">
@@ -185,8 +190,9 @@
         </div>
       </div>
     </div>
-    <section class="trending">
-      <div class="container">
+    <!-- sectionTrending -->
+    <section class="trending ">
+      <div class="container ">
         <div class="row">
           <div class="col ">
             <p class="trendingHeader">TRENDING</p>
@@ -197,8 +203,8 @@
             <a href="#" class="text-decoration-none viewTrending">View all</a>
           </div>
         </div>
-        <div class="row d-flex justify-content-center">
-          <div class="col-2 mx-auto trendingChose">
+        <div class="ovaler d-flex justify-content-md-center">
+          <div class="col-7 mx-2 col-lg-2  mx-lg-auto trendingChose item">
             <figure class="figure mt-3">
               <div class="figure-img">
                 <img
@@ -233,7 +239,7 @@
               </figcaption>
             </figure>
           </div>
-          <div class="col-2 mx-auto trendingChose">
+          <div class="col-7 mx-2 col-lg-2 mx-lg-auto trendingChose">
             <figure class="figure mt-3">
               <div class="figure-img">
                 <img
@@ -268,7 +274,7 @@
               </figcaption>
             </figure>
           </div>
-          <div class="col-2 mx-auto trendingChose">
+          <div class="col-7 mx-2 col-lg-2 mx-lg-auto trendingChose">
             <figure class="figure mt-3">
               <div class="figure-img">
                 <img
@@ -303,7 +309,7 @@
               </figcaption>
             </figure>
           </div>
-          <div class="col-2 mx-auto trendingChose">
+          <div class="col-7 mx-2 col-lg-2 mx-lg-auto trendingChose">
             <figure class="figure mt-3">
               <div class="figure-img">
                 <img
@@ -338,7 +344,7 @@
               </figcaption>
             </figure>
           </div>
-          <div class="col-2 mx-auto trendingChose">
+          <div class="col-7 mx-2 col-lg-2 mx-lg-auto trendingChose">
             <figure class="figure mt-3">
               <div class="figure-img">
                 <img
@@ -376,6 +382,7 @@
         </div>
       </div>
     </section>
+    <!-- hero -->
     <div class="row marginBody bgHeader">
       <div class="col destination pl-0 d-flex justify-content-center">
         <img
@@ -390,7 +397,7 @@
         <div class="col-12 text-center top10Dest mt-3">Top 10 destinations</div>
       </div>
       <div class="row d-flex justify-content-center mt-5 mbDest">
-        <div class="col-2 mx-2">
+        <div class=" col-2 mx-2">
           <figure class="figure">
             <a href="#"
               ><img
@@ -457,67 +464,104 @@
 </template>
 
 <style>
-.mbDest{
-  margin-bottom:290px;
-}
-.cityDestination {
-  font-family: Poppins;
-  font-size: 18px;
-  text-transform: uppercase;
-  color: #ffffff !important;
-}
-.roundedPicture {
-  border: 4px solid rgb(255, 255, 255);
-  padding: 10px;
-  border-radius: 25px;
-}
-.top10Dest {
-  font-family: Poppins;
-  font-weight: 600;
-  font-size: 24px;
-  color: #ffffff;
-}
-.top10 {
-  font-family: Poppins;
-  font-weight: 500;
-  font-size: 14px;
-  letter-spacing: 0.3em;
-  color: #ffffff;
+/* background header */
+.bgHeader img {
+  position: absolute;
 }
 .marginBody {
   margin-top: 70px !important;
 }
-.dots {
-  height: 25px;
-  width: 25px;
-  background-color: #e9f4ff;
-  border-radius: 50%;
-  display: inline-block;
+.pictHeader1 {
+  top: 250px;
+  right: 0px;
+  border-radius: 0px 60px 60px 0px;
 }
-.trendingChoseTittle {
+.pictHeader2 {
+  top: -50px;
+  right: 0px;
+  border-radius: 60px 0px 0px 60px;
+}
+.pictHeader3 {
+  top: 500px;
+  right: 190px;
+  border-radius: 60px 0px 0px 60px;
+}
+/* teksBody */
+.smallTextHeader {
+  word-spacing: 5px;
   font-family: Poppins;
+  font-size: 18px;
+  line-height: 221.43%;
+  color: #6b6b6b;
+}
+
+.textHeader2 {
+  font-family: Poppins;
+  font-weight: 600;
+  font-size: 54px;
+  color: #2395ff;
+}
+.textHeader {
+  font-family: Poppins;
+  font-weight: 600;
+  font-size: 54px;
+}
+.hey {
+  font-family: Poppins;
+  font-weight: 500;
+  font-size: 16px;
+}
+.where {
+  font-family: Poppins;
+  font-weight: 500;
+  font-size: 20px;
+}
+.boxBuy {
+  background: #ffffff;
+  box-shadow: 0px 8px 27px rgba(14, 63, 108, 0.19);
+  border-radius: 12px;
+  padding-right: 10px !important;
+  padding-left: 10px !important;
+  margin-right: 220px !important;
+  margin-left: 50px !important;
+}
+.recentLy :hover {
+  opacity: 0.5;
+}
+.recentLy {
+  transition: opacity 0.5s !important;
+  font-family: Poppins;
+  font-weight: 600;
+  font-size: 16px;
+  color: #2395ff;
+}
+.boxOrder {
+  box-shadow: 0px 8px 27px rgba(14, 63, 108, 0.19);
+  border-radius: 12px;
+}
+.from {
+  font-family: Lato;
   font-size: 12px;
-  line-height: 18px;
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.41);
-  border-radius: 33px;
+  color: #979797;
 }
-.figure-img {
-  position: relative;
+.routeTeks {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+
+  color: #000000;
 }
-.figure-img a:hover {
-  margin-bottom: 5px;
-  background-color: rgba(245, 250, 255, 0.3);
+.teksCountry {
+  font-family: Lato;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 14px;
+
+  color: #000000;
 }
-.figure-img a {
-  position: absolute;
-  top: 0;
-  bottom: 3.2px;
-  left: 0;
-  right: 0;
-  border-radius: 20px;
-  text-decoration: none !important;
-}
+/* section trending */
 .teksChoseTrending {
   font-family: Poppins;
   font-weight: 600;
@@ -561,30 +605,74 @@
 .trending {
   margin-top: 175px;
 }
+.trendingChoseTittle {
+  font-family: Poppins;
+  font-size: 12px;
+  line-height: 18px;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.41);
+  border-radius: 33px;
+}
+
+.dots {
+  height: 25px;
+  width: 25px;
+  background-color: #e9f4ff;
+  border-radius: 50%;
+  display: inline-block;
+}
+/* hero */
+
+.cityDestination {
+  font-family: Poppins;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #ffffff !important;
+}
+.mbDest {
+  margin-bottom: 290px;
+}
+.roundedPicture {
+  border: 4px solid rgb(255, 255, 255);
+  padding: 10px;
+  border-radius: 25px;
+}
+.top10Dest {
+  font-family: Poppins;
+  font-weight: 600;
+  font-size: 24px;
+  color: #ffffff;
+}
+.top10 {
+  font-family: Poppins;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.3em;
+  color: #ffffff;
+}
+
+.figure-img {
+  position: relative;
+}
+.figure-img a:hover {
+  margin-bottom: 5px;
+  background-color: rgba(245, 250, 255, 0.3);
+}
+.figure-img a {
+  position: absolute;
+  top: 0;
+  bottom: 3.2px;
+  left: 0;
+  right: 0;
+  border-radius: 20px;
+  text-decoration: none !important;
+}
+
 .colOr {
   width: 50px !important;
 }
-.pictHeader3 {
-  top: 500px;
-  right: 190px;
-  border-radius: 60px 0px 0px 60px;
-}
-.pictHeader2 {
-  top: -50px;
-  right: 0px;
-  border-radius: 60px 0px 0px 60px;
-}
-.pictHeader1 img {
-  top: 250px;
-  right: 0px;
-  border-radius: 0px 60px 60px 0px;
-}
-.bgHeader img {
-  position: absolute;
-}
 .teksSubmit {
   font-family: Poppins;
-  font-style: normal;
   font-weight: bold;
   font-size: 18px;
   color: #ffffff;
@@ -602,7 +690,6 @@
 }
 .teksMenu {
   font-family: Poppins;
-  font-style: normal;
   font-weight: 500;
   font-size: 14px;
   color: #6b6b6b;
@@ -624,91 +711,56 @@
   font-size: 14px;
   color: #ffffff;
 }
-.boxBuy {
-  background: #ffffff;
-  box-shadow: 0px 8px 27px rgba(14, 63, 108, 0.19);
-  border-radius: 12px;
-  width: 80px !important;
-  padding-right: 10px !important;
-  padding-left: 10px !important;
-  margin-right: 220px !important;
-  margin-left: 50px !important;
-}
-.teksCountry {
-  font-family: Lato;
-  font-weight: 300;
-  font-size: 12px;
-  line-height: 14px;
-
-  color: #000000;
-}
-.routeTeks {
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 30px;
-
-  color: #000000;
-}
-.boxOrder {
-  box-shadow: 0px 8px 27px rgba(14, 63, 108, 0.19);
-  border-radius: 12px;
-}
-.from {
-  font-family: Lato;
-  font-size: 12px;
-  color: #979797;
-}
-.recentLy :hover {
-  opacity: 0.5;
-}
-.recentLy {
-  transition: opacity 0.5s !important;
-  font-family: Poppins;
-  font-weight: 600;
-  font-size: 16px;
-  color: #2395ff;
-}
-.hey {
-  font-family: Poppins;
-  font-weight: 500;
-  font-size: 16px;
-}
-.where {
-  font-family: Poppins;
-  font-weight: 500;
-  font-size: 20px;
-}
-.smallTextHeader {
-  word-spacing: 5px;
-  font-family: Poppins;
-  font-size: 18px;
-  line-height: 221.43%;
-  color: #6b6b6b;
-}
-.textHeader2 {
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 54px;
-  color: #2395ff;
-}
-.textHeader {
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 54px;
+@media screen and (max-width: 450px) {
+  .pictHeader1 {
+    top: 100px;
+    height: 180px !important;
+    right: 55px;
+  }
+  .pictHeader3 {
+    top: 570px;
+    right: -70px;
+  }
+  .textHeader2 {
+    font-size: 36px;
+  }
+  .textHeader {
+    font-size: 36px;
+    margin-top: -100px;
+  }
+  .marginBody {
+    margin-top: 180px !important;
+  }
+  .boxBuy {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+    max-width: 330px !important;
+  }
+  .teksSubmit {
+    font-size: 15px;
+  }
+  .ovaler {
+    display: flex;
+    overflow-x: auto;
+  }
+  .smallTextHeader {
+    word-spacing: 0px;
+    font-size: 15px;
+    font-weight: 200 !important;
+    color: #979797;
+  }
 }
 </style>
 
 <script>
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
-export default {
-  components: {
-    Navbar,
-    Footer
-  }
-}
+// import Navbar from '../components/Navbar'
+// import Footer from '../components/Footer'
+// export default {
+//   components: {
+//     Navbar,
+//     Footer
+//   }
+// }
 </script>
