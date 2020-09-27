@@ -33,17 +33,20 @@ const routes = [
   {
     path: '/search',
     name: 'Search',
-    component: Search
+    component: Search,
+    meta: { requiresAuth: true }
   },
   {
     path: '/profile',
     name: 'Profile',
-    component: Profile
+    component: Profile,
+    meta: { requiresAuth: true }
   },
   {
     path: '/booking',
     name: 'Booking',
-    component: Booking
+    component: Booking,
+    meta: { requiresAuth: true }
   }
 
 ]

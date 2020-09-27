@@ -1,7 +1,7 @@
 <template>
     <div>
   <b-navbar toggleable="md" type="light"  class="bg-lighto h-158 mt-10">
-    <b-navbar-brand href="" class="d-flex">
+    <b-navbar-brand href="" class="d-flex" to="/">
         <img src="../assets/icons/ankasa-smallicon.png" alt="" class="ml-sm-5 mr-2 ml-1">
         <h3>Ankasa</h3>
     </b-navbar-brand>
@@ -15,7 +15,7 @@
           <b-form-input size="sm" class="mr-sm-12" placeholder="Search"></b-form-input>
         </b-nav-form>
         <b-nav-item class="navigation" @click="$event.target.classList.toggle('active')" ref="active1">Find Ticket</b-nav-item>
-        <b-nav-item class="navigation" @click="$event.target.classList.toggle('active')" ref="active2">My Booking</b-nav-item>
+        <b-nav-item to="/booking" class="navigation" @click="$event.target.classList.toggle('active')" ref="active2">My Booking</b-nav-item>
             <b-dropdown-divider></b-dropdown-divider>
       </b-navbar-nav>
       <b-navbar-nav class="ml-auto" v-if="logged">

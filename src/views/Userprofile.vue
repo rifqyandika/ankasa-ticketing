@@ -133,7 +133,7 @@ export default {
       localStorage.removeItem('token')
       localStorage.removeItem('refreshToken')
       localStorage.removeItem('id')
-      window.location.reload()
+      window.location = '/'
     }
   }
 }
