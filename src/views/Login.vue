@@ -3,7 +3,7 @@
     <div class="container-fluid" id="container">
       <div class="row mainrow">
         <div class="col-sm-8 d-none d-sm-flex jumbotr">
-            <img src="../assets/icons/illustration.png">
+          <img src="../assets/icons/illustration.png" />
         </div>
         <div class="col-sm-4 col-xs-12 form">
           <div class="title">
@@ -21,32 +21,46 @@
           <div class="form-group row rowform" v-else>
             <div class="col-sm-10 align-middle">
               <h1>Login</h1>
-              <input type="email" class="form-control" placeholder="Email" />
-              <input
-                type="password"
-                class="form-control"
-                placeholder="Password"
-              />
-              <button type="submit" class="btn btn-primary" @click="coba()">Sign In</button>
+              <form @submit.prevent="onLogin">
+                <input type="email" class="form-control" placeholder="Email"
+                  v-model="form.email" required/>
+                <input
+                  type="password"
+                  class="form-control"
+                  placeholder="Password"
+                  v-model="form.password"
+                  required
+                />
+                <button type="submit" class="btn btn-primary">Sign In</button>
+              </form>
               <p>Do you forgot your password?</p>
-              <p @click="forgotpassword=true" class="text-center linkk" >Tap here for reset</p>
-              <br>
-              <br>
+              <p @click="forgotpassword = true" class="text-center linkk">
+                Tap here for reset
+              </p>
+              <br />
+              <br />
               <hr />
               <p class="p-bott">or sign in with</p>
               <div class="signinother">
-              <button type="button" class="btn btn-outline-primary">
-                <img src="../assets/icons/google.png">
-              </button>
-              <button type="button" class="btn btn-outline-primary">
-                <img src="../assets/icons/facebook.png">
-              </button>
+                <button type="button" class="btn btn-outline-primary">
+                  <img src="../assets/icons/google.png" />
+                </button>
+                <button type="button" class="btn btn-outline-primary">
+                  <img src="../assets/icons/facebook.png" />
+                </button>
               </div>
-            </div>
-            <div class="err erro" ref="err">
-              A simple primary alert—check it out!
+              <p>
+                Dont have any account?
+                <router-link to="/register"> Register </router-link> now
+              </p>
             </div>
           </div>
+        </div>
+        <div class="hide erro" ref="err">
+          {{ errorres }}
+        </div>
+        <div class="hide succ" ref="suc">
+          {{ successres }}
         </div>
       </div>
     </div>
@@ -54,22 +68,44 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+import functions from '../mixins/functions'
+
 export default {
   data () {
     return {
       forgotpassword: false,
-      error: false
+      form: {
+        email: '',
+        password: ''
+      }
     }
   },
   methods: {
-    coba () {
-      const err = this.$refs.err.classList
-      err.contains('err') ? err.remove('err') : err.add('err')
-      setTimeout(function () {
-        err.contains('err') ? err.remove('err') : err.add('err')
-      }, 1000)
-    }
-  }
+    onLogin () {
+      this.actionLogin(this.form)
+        .then((response) => {
+          if (response.code === 401) {
+            this.errorres = response.message
+            this.errAlert()
+          }
+          if (response.code === 200) {
+            this.successres = response.message
+            this.sucAlert()
+            setTimeout(() => {
+              window.location = '/'
+            }, 1000)
+          }
+        })
+        .catch((err) => {
+          alert(err)
+        })
+    },
+    ...mapActions({
+      actionLogin: 'auth/login'
+    })
+  },
+  mixins: [functions]
 }
 </script>
 
@@ -79,23 +115,39 @@ export default {
   margin: 0px;
   padding: 0px;
 }
-.err {
+.hide {
   display: none !important ;
 
 }
 .erro {
-  background: rgba(255, 1, 1, 0.377);
+  background: rgba(255, 11, 11, 0.863);
   color: rgb(88, 0, 0);
   height: 70px;
   padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 5px 0px 0px 5px;
+  border-radius: 5px;
   font-weight: 500;
   position: fixed;
-  top: 100px;
-  right: 0px;
+  bottom: 100px;
+  right: 100px;
+  border-left: 5px rgb(151, 0, 0) solid;
+}
+.succ {
+  background: rgba(0, 218, 11, 0.836);
+  color: rgb(18, 90, 0);
+  height: 70px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  font-weight: 500;
+  position: fixed;
+  bottom: 100px;
+  right: 100px;
+  border-left: 5px rgb(0, 68, 17) solid;
 }
 #container {
   height: 100vh;
@@ -111,7 +163,7 @@ export default {
   height: 100%;
 }
 .col-sm-10 {
-    align-self: center;
+  align-self: center;
 }
 .jumbotr {
   display: flex;
@@ -137,7 +189,7 @@ input {
   margin: 10px 0px;
 }
 input::-webkit-input-placeholder {
-  color: #9B96AB;
+  color: #9b96ab;
 }
 div.title {
   top: 20px;
@@ -159,27 +211,27 @@ div.title {
   border-radius: 10px;
 }
 .btn-primary {
-    background: #2395FF;
-    box-shadow: 0px 8px 10px rgba(35, 149, 255, 0.3);
-    border-radius: 10px;
+  background: #2395ff;
+  box-shadow: 0px 8px 10px rgba(35, 149, 255, 0.3);
+  border-radius: 10px;
 }
 .btn-outline-primary {
-    box-sizing: border-box;
-    border-radius: 6px;
-    width: 95px;
-    margin: 5px 5px
+  box-sizing: border-box;
+  border-radius: 6px;
+  width: 95px;
+  margin: 5px 5px;
 }
 .signinother {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
-.signinother button img{
-    width: 20px;
-    height: 20px;
+.signinother button img {
+  width: 20px;
+  height: 20px;
 }
-.checkboks{
-    display: inline-flex;
-    align-items: center;
+.checkboks {
+  display: inline-flex;
+  align-items: center;
   margin-bottom: 20px;
 }
 p {
@@ -187,24 +239,24 @@ p {
   font-family: "Lato", sans-serif;
   text-align: center;
   color: #595959;
-  margin: 3px 0px
+  margin: 3px 0px;
 }
 p.p-bott {
   font-size: 14px;
   font-family: "Lato", sans-serif;
   text-align: center;
   color: #595959;
-  margin: 5px 0px
+  margin: 5px 0px;
 }
-.linkk{
-    text-align: center;
-    cursor: pointer;
-    color: #2395FF;
-    text-decoration: underline;
+.linkk {
+  text-align: center;
+  cursor: pointer;
+  color: #2395ff;
+  text-decoration: underline;
 }
 @media (max-width: 576px) {
-    .form {
-  padding: 10%;
+  .form {
+    padding: 10%;
+  }
 }
- }
 </style>

@@ -13,18 +13,22 @@
           <div class="form-group row rowform">
             <div class="col-sm-10 align-middle">
               <h1>Register</h1>
-              <input type="text" class="form-control" placeholder="Full Name" />
-              <input type="email" class="form-control" placeholder="Email" />
+              <form @submit.prevent="onRegister">
+              <input type="text" v-model="form.fullname" class="form-control" placeholder="Full Name" required/>
+              <input type="email" v-model="form.email" class="form-control" placeholder="Email" required/>
               <input
                 type="password"
                 class="form-control"
                 placeholder="Password"
+                v-model="form.password"
+                required
               />
-              <button type="button" class="btn btn-primary">Sign Up</button>
+              <button type="submit" class="btn btn-primary">Sign Up</button>
               <div class="checkboks">
-                <input id="term" type="checkbox" />
+                <input id="term" type="checkbox" required/>
                 <label for="term">Accept term and Conditions</label>
               </div>
+              </form>
               <hr />
               <p>Already have account?</p>
               <router-link to="/login" type="button" class="btn btn-outline-primary">
@@ -33,13 +37,56 @@
             </div>
           </div>
         </div>
+        <div class="hide erro" ref="err">
+         {{errorres}}
+        </div>
+        <div class="hide succ" ref="suc">
+         {{successres}}
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+import { mapActions } from 'vuex'
+import functions from '../mixins/functions'
+
+export default {
+  data () {
+    return {
+      form: {
+        fullname: '',
+        email: '',
+        password: ''
+      }
+    }
+  },
+  methods: {
+    onRegister () {
+      this.actionRegist(this.form)
+        .then((response) => {
+          if (response.code === 402) {
+            this.errorres = response.message
+            this.errAlert()
+          } if (response.code === 200) {
+            this.successres = response.message
+            this.sucAlert()
+            setTimeout(() => {
+              window.location = '/login'
+            }, 1000)
+          }
+        })
+        .catch((err) => {
+          alert(err)
+        })
+    },
+    ...mapActions({
+      actionRegist: 'auth/register'
+    })
+  },
+  mixins: [functions]
+}
 </script>
 
 <style scoped>
@@ -47,6 +94,40 @@ export default {}
 * {
   margin: 0px;
   padding: 0px;
+}
+.hide {
+  display: none !important ;
+
+}
+.erro {
+  background: rgba(255, 1, 1, 0.377);
+  color: rgb(88, 0, 0);
+  height: 70px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px 0px 0px 5px;
+  font-weight: 500;
+  position: fixed;
+  top: 100px;
+  right: 0px;
+  border-left: 5px rgb(151, 0, 0) solid;
+}
+.succ {
+  background: rgba(3, 255, 16, 0.377);
+  color: rgb(18, 90, 0);
+  height: 70px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px 0px 0px 5px;
+  font-weight: 500;
+  position: fixed;
+  top: 100px;
+  right: 0px;
+  border-left: 5px rgb(0, 68, 17) solid;
 }
 #container {
   height: 100vh;

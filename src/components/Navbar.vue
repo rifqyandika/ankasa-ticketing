@@ -33,11 +33,11 @@
             </div>
           </template>
           <b-dropdown-item href="#">Profile</b-dropdown-item>
-          <b-dropdown-item href="#">Sign Out</b-dropdown-item>
+          <b-dropdown-item @click="logout">Sign Out</b-dropdown-item>
         </b-nav-item-dropdown>
       </b-navbar-nav>
       <b-navbar-nav class="ml-auto" v-else>
-        <router-link to="/register" type="button" class="btn btn-primary" >Sign Up</router-link>
+        <router-link to="/register" type="button" class="btn btn-primary btnsignup" >Sign Up</router-link>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
@@ -48,13 +48,25 @@
 export default {
   data () {
     return {
-      logged: true
+      logged: false
     }
   },
   methods: {
     active () {
       const active = this.$refs.active.classList
       active.contains('active') ? active.remove('active') : active.add('active')
+    },
+    logout () {
+      localStorage.removeItem('token')
+      localStorage.removeItem('refreshToken')
+      localStorage.removeItem('id')
+      window.location.reload()
+    }
+  },
+  mounted () {
+    const token = localStorage.getItem('token')
+    if (token) {
+      this.logged = true
     }
   }
 }
@@ -149,6 +161,9 @@ export default {
     background: #2395FF;
     box-shadow: 0px 8px 10px rgba(35, 149, 255, 0.3);
     border-radius: 10px;
+}
+.btnsignup {
+  margin-right: 50px;
 }
 @media (max-width: 767px) {
 .active::after {
