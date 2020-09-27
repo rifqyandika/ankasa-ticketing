@@ -130,7 +130,7 @@ export default {
   border-radius: 5px;
   font-weight: 500;
   position: fixed;
-  bottom: 100px;
+  top: 100px;
   right: 100px;
   border-left: 5px rgb(151, 0, 0) solid;
 }
@@ -145,7 +145,7 @@ export default {
   border-radius: 5px;
   font-weight: 500;
   position: fixed;
-  bottom: 100px;
+  top: 100px;
   right: 100px;
   border-left: 5px rgb(0, 68, 17) solid;
 }

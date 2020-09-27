@@ -5,6 +5,8 @@ import Register from '../views/Register.vue'
 import Login from '../views/Login.vue'
 import Search from '../views/Searchresult.vue'
 import store from '../store'
+import Profile from '../views/Userprofile.vue'
+import Booking from '../views/Mybooking.vue'
 
 Vue.use(VueRouter)
 
@@ -30,9 +32,20 @@ const routes = [
   },
   {
     path: '/search',
-    name: 'Seearch',
+    name: 'Search',
     component: Search
+  },
+  {
+    path: '/profile',
+    name: 'Profile',
+    component: Profile
+  },
+  {
+    path: '/booking',
+    name: 'Booking',
+    component: Booking
   }
+
 ]
 
 const router = new VueRouter({

@@ -1,5 +1,5 @@
 <template>
-    <div class="mt-n3">
+    <div>
   <b-navbar toggleable="md" type="light"  class="bg-lighto h-158 mt-10">
     <b-navbar-brand href="" class="d-flex">
         <img src="../assets/icons/ankasa-smallicon.png" alt="" class="ml-sm-5 mr-2 ml-1">
@@ -32,7 +32,7 @@
                 <img class="rounded-circle" src="../assets/img/anonymous.jpg" alt="">
             </div>
           </template>
-          <b-dropdown-item href="#">Profile</b-dropdown-item>
+          <b-dropdown-item to="/profile">Profile</b-dropdown-item>
           <b-dropdown-item @click="logout">Sign Out</b-dropdown-item>
         </b-nav-item-dropdown>
       </b-navbar-nav>
