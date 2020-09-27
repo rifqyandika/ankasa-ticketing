@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="mt-n3">
   <b-navbar toggleable="md" type="light"  class="bg-lighto h-158 mt-10">
     <b-navbar-brand href="" class="d-flex">
         <img src="../assets/icons/ankasa-smallicon.png" alt="" class="ml-sm-5 mr-2 ml-1">
