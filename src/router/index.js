@@ -7,6 +7,7 @@ import Search from '../views/Searchresult.vue'
 import store from '../store'
 import Profile from '../views/Userprofile.vue'
 import Booking from '../views/Mybooking.vue'
+import Reset from '../views/Resetpassword.vue'
 
 Vue.use(VueRouter)
 
@@ -29,6 +30,11 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: Login
+  },
+  {
+    path: '/reset-pwd',
+    name: 'Reset',
+    component: Reset
   },
   {
     path: '/search',

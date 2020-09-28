@@ -8,6 +8,15 @@
             <div class="col-12 d-flex justify-content-center">
               <div class="profile-image rounded-circle">
                 <img src="../assets/img/anonymous.jpg" class="rounded-circle" />
+                <b-button
+                  v-b-modal="'my-modal'"
+                  class="pen rounded-circle"
+                  style="border: none"
+                  @click="showModal"
+                >
+                  <img src="../assets/icons/pencil.svg" alt="" srcset="" />
+                </b-button>
+                <!-- The modal -->
               </div>
             </div>
             <div class="input-pp d-flex justify-content-center">
@@ -58,62 +67,116 @@
           </div>
         </div>
         <div class="col-sm-8 d-none d-sm-block">
-            <div class="row formprofile">
-                <div class="col-12 " style="color: #2395FF; font-size: 14px; letter-spacing: 2px;">
-                    PROFILE
-                </div>
-                <div class="col-12" style="margin-bottom: 30px">
-                    <h2 style="font-weight: bold">Profile</h2>
-                </div>
-                <div class="col-12 col-sm-6">
-                    <div class="col-12 m-10 bio-con">
-                        Contact
-                    </div>
-                    <div class="col-12">
-                        <div>
-                            <p class="label">Email</p>
-                            <input type="email" >
-                        </div>
-                        <div>
-                            <p class="label">Phone Number</p>
-                            <input type="text">
-                        </div>
-                        <a class="d-flex justify-content-end">
-                            Account Setting >
-                        </a>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 ">
-                    <div class="col-12 m-10 bio-con">
-                        Biodata
-                    </div>
-                    <div class="col-12 formm">
-                        <div>
-                            <p class="label">User Name</p>
-                            <input type="email">
-                        </div>
-                        <div>
-                            <p class="label">City</p>
-                            <Select>
-                                <option value="">Medan</option>
-                                <option value="">Bukan Medan</option>
-                            </Select>
-                        </div>
-                        <div>
-                            <p class="label">Address</p>
-                            <input type="email">
-                        </div>
-                        <div>
-                            <p class="label">Post Code</p>
-                            <input type="text">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 d-flex justify-content-end">
-                  <button class="btn  btn-primary btnsave mr-3" >Save</button>
-                </div>
+          <div class="row formprofile">
+            <div
+              class="col-12"
+              style="color: #2395ff; font-size: 14px; letter-spacing: 2px"
+            >
+              PROFILE
             </div>
+            <div class="col-12" style="margin-bottom: 30px">
+              <h2 style="font-weight: bold">Profile</h2>
+            </div>
+            <div class="col-12 col-sm-6">
+              <div class="col-12 m-10 bio-con">Contact</div>
+              <div class="col-12">
+                <div>
+                  <p class="label">Email</p>
+                  <input type="email" />
+                </div>
+                <div>
+                  <p class="label">Phone Number</p>
+                  <input type="text" />
+                </div>
+                <a class="d-flex justify-content-end"> Account Setting > </a>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6">
+              <div class="col-12 m-10 bio-con">Biodata</div>
+              <div class="col-12 formm">
+                <div>
+                  <p class="label">User Name</p>
+                  <input type="email" />
+                </div>
+                <div>
+                  <p class="label">City</p>
+                  <Select>
+                    <option value="">Medan</option>
+                    <option value="">Bukan Medan</option>
+                  </Select>
+                </div>
+                <div>
+                  <p class="label">Address</p>
+                  <input type="email" />
+                </div>
+                <div>
+                  <p class="label">Post Code</p>
+                  <input type="text" />
+                </div>
+              </div>
+            </div>
+            <div class="col-12 d-flex justify-content-end">
+              <button class="btn btn-primary btnsave mr-3">Save</button>
+            </div>
+          </div>
         </div>
+        <!-- <b-modal > -->
+        <div class="col-12 position-absolute" id="my-modal" v-if="x">
+          <div class="row formprofile">
+            <div
+              class="col-12"
+              style="color: #2395ff; font-size: 14px; letter-spacing: 2px"
+            >
+              PROFILE
+            </div>
+            <div class="col-12" style="margin-bottom: 30px">
+              <h2 style="font-weight: bold">Profile</h2>
+            </div>
+            <div class="col-12 col-sm-6">
+              <div class="col-12 m-10 bio-con">Contact</div>
+              <div class="col-12">
+                <div>
+                  <p class="label">Email</p>
+                  <input type="email" />
+                </div>
+                <div>
+                  <p class="label">Phone Number</p>
+                  <input type="text" />
+                </div>
+                <a class="d-flex justify-content-end"> Account Setting > </a>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6">
+              <div class="col-12 m-10 bio-con">Biodata</div>
+              <div class="col-12 formm">
+                <div>
+                  <p class="label">User Name</p>
+                  <input type="email" />
+                </div>
+                <div>
+                  <p class="label">City</p>
+                  <Select>
+                    <option value="">Medan</option>
+                    <option value="">Bukan Medan</option>
+                  </Select>
+                </div>
+                <div>
+                  <p class="label">Address</p>
+                  <input type="email" />
+                </div>
+                <div>
+                  <p class="label">Post Code</p>
+                  <input type="text" />
+                </div>
+              </div>
+            </div>
+            <div class="col-12 d-flex justify-content-end">
+              <button class="btn btn-primary btnsave mr-3" @click="hideModal">Cancel</button>
+              <button class="btn btn-primary btnsave mr-3" >Save</button>
+            </div>
+          </div>
+        </div>
+        <!-- </b-modal> -->
       </div>
     </div>
     <Footer />
@@ -134,6 +197,18 @@ export default {
       localStorage.removeItem('refreshToken')
       localStorage.removeItem('id')
       window.location = '/'
+    },
+    showModal () {
+      // this.$refs['my-modal'].show()
+      this.x = true
+    },
+    hideModal () {
+      this.x = false
+    }
+  },
+  data () {
+    return {
+      x: false
     }
   }
 }
@@ -163,6 +238,7 @@ export default {
   width: 137px;
   border: 3px #2395ff solid;
   padding: 5px;
+  position: relative;
 }
 .profile-image img {
   width: 100%;
@@ -223,35 +299,68 @@ export default {
   color: #2395ff;
 }
 .formprofile {
-    padding: 20px;
-    background-color: #fff;
-    margin-left: 10px;
-    border-radius: 10px;
+  padding: 20px;
+  background-color: #fff;
+  margin-left: 10px;
+  border-radius: 10px;
 }
-input,select {
-    border: none;
-    border-bottom: 2px #9B96AB solid;
-    width: 100%;
-    padding: 0px 10px;
-    margin-bottom: 30px;
+input,
+select {
+  border: none;
+  border-bottom: 2px #9b96ab solid;
+  width: 100%;
+  padding: 0px 10px;
+  margin-bottom: 30px;
 }
 .label {
-    font-family: Lato;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    color: #9B96AB;
-    margin-bottom: 5px;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  color: #9b96ab;
+  margin-bottom: 5px;
 }
 .formm {
-    width: 100%;
+  width: 100%;
 }
 .btnsave {
-    width: 100px;
-    border-radius: 10px;
-    box-shadow: 0px 8px 10px rgba(35, 149, 255, 0.3);
+  width: 100px;
+  border-radius: 10px;
+  box-shadow: 0px 8px 10px rgba(35, 149, 255, 0.3);
 }
 .bio-con {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
+}
+.pen {
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  box-shadow: 0px 8px 27px rgba(14, 63, 108, 0.19);
+  right: 0px;
+  bottom: 10px;
+}
+.pen img {
+  width: 80%;
+}
+#my-modal {
+  left: 0;
+  padding: 0;
+  width: 100vw;
+  justify-content: center;
+  display: flex;
+}
+@media (max-width: 540px) {
+  .formprofile {
+  background-color: #fff;
+  margin: 0px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px #888888;
+  width: 90%;
+}
 }
 </style>

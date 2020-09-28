@@ -12,18 +12,13 @@
           </div>
           <div class="form-group row rowform">
             <div class="col-sm-10 align-middle">
-              <h1>Register</h1>
-              <form @submit.prevent="onRegister">
-              <input type="text" v-model="form.fullname" class="form-control" placeholder="Full Name" required/>
-              <input type="email" v-model="form.email" class="form-control" placeholder="Email" required/>
-              <input
-                type="password"
-                class="form-control"
-                placeholder="Password"
-                v-model="form.password"
-                required
-              />
-              <button type="submit" class="btn btn-primary">Sign Up</button>
+              <h1>Reset Password</h1>
+              <form @submit.prevent="onResetpassword">
+
+              <input type="password" class="form-control" placeholder="Password" @keyup="checkpassword" v-model="form.password" required/>
+              <input type="password" v-model="form.confirmpwd" class="form-control" @keyup="checkpassword" placeholder="Confirm Password" required/>
+              <p ref="checkerror" style="color: red; display: block;">{{errorcheck}}</p>
+              <button type="submit" class="btn btn-primary">Reset Password</button>
               <div class="checkboks">
                 <input id="term" type="checkbox" required/>
                 <label for="term">Accept term and Conditions</label>
@@ -32,7 +27,7 @@
               <hr />
               <p>Already have account?</p>
               <router-link to="/login" type="button" class="btn btn-outline-primary">
-                Sign In
+                Reset Password
               </router-link>
             </div>
           </div>
@@ -56,33 +51,50 @@ export default {
   data () {
     return {
       form: {
-        fullname: '',
-        email: '',
-        password: ''
-      }
+        password: '',
+        confirmpwd: '',
+        key: ''
+      },
+      errorcheck: ''
     }
   },
   methods: {
-    onRegister () {
-      this.actionRegist(this.form)
-        .then((response) => {
-          if (response.code === 402) {
-            this.errorres = response.message
-            this.errAlert()
-          } if (response.code === 200) {
-            this.successres = response.message
-            this.sucAlert()
-            setTimeout(() => {
-              window.location = '/login'
-            }, 1000)
-          }
-        })
-        .catch((err) => {
-          alert(err)
-        })
+    onResetpassword () {
+      if (this.errorcheck === 'password not match') {
+        this.errorres = 'Please Check your Password'
+        this.errAlert()
+      } else {
+        this.actionRegist(this.form)
+          .then((response) => {
+            if (response.code === 402) {
+              this.errorres = response.message
+              this.errAlert()
+            } if (response.code === 200) {
+              this.successres = response.message
+              this.sucAlert()
+              setTimeout(() => {
+                window.location = '/login'
+              }, 1000)
+            }
+          })
+          .catch((err) => {
+            alert(err)
+          })
+      }
+    },
+    checkpassword () {
+      if (this.form.password !== this.form.confirmpwd) {
+        this.errorcheck = 'password not match'
+        const err = this.$refs.checkerror.style
+        err.display = 'block'
+      } else {
+        const err = this.$refs.checkerror.style
+        err.display = 'none'
+        this.errorcheck = ''
+      }
     },
     ...mapActions({
-      actionRegist: 'auth/register'
+      // actionRegist: 'auth/register'
     })
   },
   mixins: [functions]
@@ -214,9 +226,6 @@ p {
 }
 input[type="checkbox"] {
   margin-right: 10px;
-}
-*:focus {
-  outline: none;
 }
 @media (max-width: 576px) {
   .form {
