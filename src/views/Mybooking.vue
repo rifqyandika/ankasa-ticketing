@@ -60,7 +60,7 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-8 d-none d-sm-block">
+        <div class="col-sm-8 col-12 d-sm-block p-0 back-responsive">
           <div class="row formprofile">
             <div
               class="col-12 mb-4"
@@ -78,11 +78,11 @@
               Order History
             </div>
           </div>
-          <div class="row formprofile">
-            <div class="col-12 mb-4 p-0" style="font-size: 14px">
+          <div class="row formprofile ticket">
+            <div class="col-12 mb-4 p-0 ticket-item" style="font-size: 14px">
               Monday, 20 July'20 - 12:33
             </div>
-            <div class="col-12 mb-1" style="font-size: 14px">
+            <div class="col-12 mb-1 ticket-item" style="font-size: 14px">
               <div class="d-flex flex-row">
                 <h4>IDN</h4>
                 <div class="mr-3 ml-3">
@@ -92,44 +92,68 @@
               </div>
             </div>
             <div
-              class="col-12 d-flex mb-3 justify-content-start p-0"
+              class="col-12 d-flex mb-2 mb-sm-3 justify-content-start p-0 ticket-item"
               style="font-size: 12px; color: #979797"
             >
               Garuda Indonesia, AB-221
             </div>
-            <hr>
-            <div class="col-12 p-0">
-              <b-navbar toggleable type="light" variant="light">
-                <div class="d-flex flex-row" style="font-size: 14px;">
-                    <p class="mr-5 mb-0 align-items-center p-1" style="color: #979797">status</p>
-                    <div class="p-1 pl-2 pr-2" style="background: #FF7F23; border-radius: 6px; color: white;">
-                        Waiting for payment
-                    </div>
+            <div
+              class="col-12 d-flex mb-0 justify-content-start p-0 ticket-item"
+              style="font-size: 12px; color: #979797"
+            >
+            <hr style="width: 100%; border: 1px #979797 solid">
+            </div>
+            <div class="col-12 p-0 ticket-item">
+              <b-navbar toggleable variant="light">
+                <div class="d-flex flex-row" style="font-size: 14px">
+                  <p
+                    class="mr-5 mb-0 align-items-center p-1"
+                    style="color: #979797"
+                  >
+                    status
+                  </p>
+                  <div
+                    class="p-1 pl-2 pr-2"
+                    style="
+                      background: #FF7F23;
+                      border-radius: 6px;
+                      color: white;
+                    "
+                  >
+                    Waiting for payment
+                  </div>
                 </div>
-                <b-navbar-toggle target="navbar-toggle-collapse">
-                  <template v-slot:default="{ expanded }" class="d-flex flex-row">
-                      <p class="m-0 border-0 ml-auto" style="color: #2395ff; ">
-                          View details
-                          <b-icon v-if="expanded" icon="chevron-bar-up"></b-icon>
-                    <b-icon v-else icon="chevron-bar-down"></b-icon>
+                <b-navbar-toggle
+                  target="navbar-toggle-collapse2"
+                  class="d-none d-sm-block"
+                >
+                  <template
+                    v-slot:default="{ expanded }"
+                    class="d-flex flex-row"
+                  >
+                    <p class="m-0 border-0 ml-auto" style="color: #2395ff">
+                      View details
+                      <b-icon v-if="expanded" icon="chevron-bar-up"></b-icon>
+                      <b-icon v-else icon="chevron-bar-down"></b-icon>
                     </p>
                   </template>
                 </b-navbar-toggle>
-                <b-collapse id="navbar-toggle-collapse" is-nav>
+                <b-collapse id="navbar-toggle-collapse2" is-nav>
                   <b-navbar-nav class="mr-auto">
-                    <p style="color: #2395ff;" class="mt-3">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident, quia?
+                    <p style="color: #2395ff" class="mt-3">
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Provident, quia?
                     </p>
                   </b-navbar-nav>
                 </b-collapse>
               </b-navbar>
             </div>
           </div>
-          <div class="row formprofile">
-            <div class="col-12 mb-4 p-0" style="font-size: 14px">
+          <div class="row formprofile ticket">
+            <div class="col-12 mb-4 p-0 ticket-item" style="font-size: 14px">
               Monday, 20 July'20 - 12:33
             </div>
-            <div class="col-12 mb-1" style="font-size: 14px">
+            <div class="col-12 mb-1 ticket-item" style="font-size: 14px">
               <div class="d-flex flex-row">
                 <h4>IDN</h4>
                 <div class="mr-3 ml-3">
@@ -139,33 +163,57 @@
               </div>
             </div>
             <div
-              class="col-12 d-flex mb-3 justify-content-start p-0"
+              class="col-12 d-flex mb-sm-3 justify-content-start p-0 ticket-item"
               style="font-size: 12px; color: #979797"
             >
               Garuda Indonesia, AB-221
             </div>
-            <hr>
-            <div class="col-12 p-0">
-              <b-navbar toggleable type="light" variant="light">
-                <div class="d-flex flex-row" style="font-size: 14px;">
-                    <p class="mr-5 mb-0 align-items-center p-1" style="color: #979797">status</p>
-                    <div class="p-1 pl-2 pr-2" style="background: #4FCF4D; border-radius: 6px; color: white;">
-                        Eticket issued
-                    </div>
+            <div
+              class="col-12 d-flex mb-0 justify-content-start p-0 ticket-item"
+              style="font-size: 12px; color: #979797"
+            >
+            <hr style="width: 100%; border: 1px #979797 solid">
+            </div>
+            <div class="col-12 p-0 ticket-item">
+              <b-navbar toggleable variant="light">
+                <div class="d-flex flex-row" style="font-size: 14px">
+                  <p
+                    class="mr-5 mb-0 align-items-center p-1"
+                    style="color: #979797"
+                  >
+                    status
+                  </p>
+                  <div
+                    class="p-1 pl-2 pr-2"
+                    style="
+                      background: #4fcf4d;
+                      border-radius: 6px;
+                      color: white;
+                    "
+                  >
+                    Eticket issued
+                  </div>
                 </div>
-                <b-navbar-toggle target="navbar-toggle-collapse2">
-                  <template v-slot:default="{ expanded }" class="d-flex flex-row">
-                      <p class="m-0 border-0 ml-auto" style="color: #2395ff; ">
-                          View details
-                          <b-icon v-if="expanded" icon="chevron-bar-up"></b-icon>
-                    <b-icon v-else icon="chevron-bar-down"></b-icon>
+                <b-navbar-toggle
+                  target="navbar-toggle-collapse2"
+                  class="d-none d-sm-block"
+                >
+                  <template
+                    v-slot:default="{ expanded }"
+                    class="d-flex flex-row"
+                  >
+                    <p class="m-0 border-0 ml-auto" style="color: #2395ff">
+                      View details
+                      <b-icon v-if="expanded" icon="chevron-bar-up"></b-icon>
+                      <b-icon v-else icon="chevron-bar-down"></b-icon>
                     </p>
                   </template>
                 </b-navbar-toggle>
                 <b-collapse id="navbar-toggle-collapse2" is-nav>
                   <b-navbar-nav class="mr-auto">
-                    <p style="color: #2395ff;" class="mt-3">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident, quia?
+                    <p style="color: #2395ff" class="mt-3">
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Provident, quia?
                     </p>
                   </b-navbar-nav>
                 </b-collapse>
@@ -192,7 +240,7 @@ export default {
       localStorage.removeItem('token')
       localStorage.removeItem('refreshToken')
       localStorage.removeItem('id')
-      window.location.reload()
+      window.location = '/'
     }
   }
 }
@@ -200,13 +248,13 @@ export default {
 
 <style scoped>
 .bg-light {
-    background-color: #fff !important;
+  background-color: #fff !important;
 }
 .navbar-light .navbar-toggler {
-    border: none;
+  border: none;
 }
 .navbar {
-    padding: 0;
+  padding: 0;
 }
 .container-fluid {
   padding: 0;
@@ -297,6 +345,7 @@ export default {
   border-radius: 10px;
   margin-bottom: 30px;
 }
+
 input,
 select {
   border: none;
@@ -323,5 +372,57 @@ select {
 }
 .bio-con {
   margin-bottom: 30px;
+}
+.ticket-item {
+  width: auto;
+}
+.back-responsive {
+  background-color: inherit ;
+}
+@media (max-width: 540px) {
+    * {
+        margin: 0 ;
+        padding: 0 ;
+    }
+  .container-profile {
+    padding: 0px;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+  .formprofile {
+    margin: 0;
+    border-radius: 0;
+  }
+  .imageticket {
+      width: max-content;
+  }
+  .ticket {
+      background-image: url('../assets/img/ticketBackground.svg');
+      background-repeat: no-repeat;
+      background-size: content;
+      min-height: 230px;
+      width: 100%;
+      margin-bottom: 30px;
+    background-position-x: center;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 40px;
+}
+.ticket-item {
+  max-width: 300px !important;
+  margin: inherit 0px !important;
+}
+.bg-light[data-v-dd662c3a] {
+    background-color: none !important;
+}
+.bg-light {
+    background-color: none !important;
+}
+.bg-light[data-v-dd662c3a] {
+    background-color: none !important;
+}
+.back-responsive {
+  background-color: white;
+}
 }
 </style>

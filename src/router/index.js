@@ -7,6 +7,7 @@ import Search from '../views/Searchresult.vue'
 import store from '../store'
 import Profile from '../views/Userprofile.vue'
 import Booking from '../views/Mybooking.vue'
+import Reset from '../views/Resetpassword.vue'
 
 Vue.use(VueRouter)
 
@@ -31,19 +32,27 @@ const routes = [
     component: Login
   },
   {
+    path: '/reset-pwd',
+    name: 'Reset',
+    component: Reset
+  },
+  {
     path: '/search',
     name: 'Search',
-    component: Search
+    component: Search,
+    meta: { requiresAuth: true }
   },
   {
     path: '/profile',
     name: 'Profile',
-    component: Profile
+    component: Profile,
+    meta: { requiresAuth: true }
   },
   {
     path: '/booking',
     name: 'Booking',
-    component: Booking
+    component: Booking,
+    meta: { requiresAuth: true }
   }
 
 ]
