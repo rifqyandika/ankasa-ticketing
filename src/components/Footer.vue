@@ -1,5 +1,5 @@
 <template>
-  <footer class="mt-5">
+  <footer class="marginFirst">
     <div class="container">
       <div class="row">
         <div class="col-12 col-md-9  col-lg-5 ">
@@ -38,7 +38,7 @@
             <div
               class="col  ml-sm-n3 ml-md-0 mt-md-3 col-lg-12 pl-lg-0 mt-lg-3 "
             >
-              <a href="#">Notification</a>
+              <a href="/notifications">Notification</a>
             </div>
           </div>
         </div>
@@ -130,6 +130,9 @@
 </template>
 
 <style>
+.marginFirst {
+  margin-top: 140px;
+}
 .logoStore img {
   height: 53px;
 }
@@ -193,7 +196,7 @@ a:hover {
 }
 @media (max-width: 576px) {
   .outer {
-  padding: 0px 20px;
-}
+    padding: 0px 20px;
+  }
 }
 </style>

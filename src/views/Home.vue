@@ -1,35 +1,39 @@
 <template>
-  <div class="ml-0 mr-0 container-fluid">
+  <div
+    class="container-fluid"
+    style="overflow: hidden !important;
+    overflow-x: hidden !important;"
+  >
     <Navbar />
     <!-- background-header -->
     <div class="row marginBody bgHeader">
-      <div class="col pl-0 ">
+      <div class="col col-lg-7 col-xl pl-0 ">
         <img
           class="img-fluid pictHeader1"
           src="..\..\src\assets\home\Pict1.jpg"
         />
       </div>
-      <div class="col pl-0">
+      <div class="col pr-0">
         <img
           class="mt-5 mt-lg img-fluid pictHeader2"
           src="..\..\src\assets\home\Pict2.jpg"
         />
         <img
-          class="img-fluid pictHeader3"
+          class="img-fluid  pictHeader3 "
           src="..\..\src\assets\home\vector 6.png"
         />
       </div>
     </div>
     <!-- teksHeader -->
-    <div class="container">
-      <div class="row">
-        <div class="col-12 col-lg-5 pl-lg-0">
-          <p class="textHeader">
-            Find your <span class="textHeader2">Flight</span>
+    <div class="container  ">
+      <div class="row ">
+        <div class="mt-2 mt-sm-3 mt-lg-n4  ml-md-4 ml-lg-0 col-12 col-lg-6 col-xl-5 pl-lg-0 ">
+          <p class="textHeader ml-xl-n4">
+            Find your <span class="textHeader2 pb-4">Flight</span>
           </p>
-          <p class="mt-n3 smallTextHeader">and explore the world with us</p>
+          <p class="mt-n3 mt-lg-n4 ml-xl-n4 smallTextHeader">and explore the world with us</p>
         </div>
-        <div class="mx-lg-1 col-12 col-lg-4 boxBuy mx-auto">
+        <div class="mx-lg-1 col-12 col-sm-10 col-lg-5 col-xl-4 boxBuy mx-auto ">
           <div class="mx-3 my-1">
             <div class="row">
               <div class="col mt-3">
@@ -71,7 +75,7 @@
                 </div>
               </div>
             </div>
-            <div class="row mt-3">
+            <div class="row mt-3  d-flex justify-content-between">
               <div class="col btnTeks">
                 <button
                   type="submit"
@@ -83,15 +87,12 @@
                   />One way
                 </button>
               </div>
-              <div class="col text-right">
+              <div class="col pl-0 pl-lg text-right">
                 <button
                   type="submit"
-                  class="btn btn-sm btnTeks2  px-4 rounded-lg py-2"
+                  class="btn btn-sm btnTeks2  px-3 rounded-lg py-2"
                 >
-                  <img
-                    class="mr-2"
-                    src="..\..\src\assets\home\btn\Vector (4).png"
-                  />One way
+                  <img src="..\..\src\assets\home\btn\Vector (4).png" /> One way
                 </button>
               </div>
             </div>
@@ -132,8 +133,8 @@
             <div class="row mt-3">
               <div class="col-12 teksMenu ">Which class do you want??</div>
             </div>
-            <div class="row mt-2">
-              <div class="col tekChoseDeparture">
+            <div class="row mt-2 justify-content-between  tekChoseDeparture">
+              <div class="col-3 col-lg-4 ">
                 <div class="form-check form-check-inline">
                   <input
                     class="form-check-input"
@@ -146,7 +147,9 @@
                     >Economy</label
                   >
                 </div>
-                <div class=" ml-3 form-check form-check-inline">
+              </div>
+              <div class="col-3 col-lg-4 text-center">
+                <div class="  form-check form-check-inline">
                   <input
                     class="form-check-input"
                     type="radio"
@@ -158,7 +161,9 @@
                     >Business</label
                   >
                 </div>
-                <div class="ml-3 form-check form-check-inline">
+              </div>
+              <div class="col-3 col-4 pl-0  pr-0">
+                <div class=" form-check form-check-inline">
                   <input
                     class="form-check-input"
                     type="radio"
@@ -191,272 +196,408 @@
       </div>
     </div>
     <!-- sectionTrending -->
-    <section class="trending ">
-      <div class="container ">
-        <div class="row">
-          <div class="col ">
-            <p class="trendingHeader">TRENDING</p>
-
-            <p class="trendingHeader2">Trending destinations</p>
+    <section class="trending">
+      <div class="container-fluid pl-0 pr-0 ml-0   ">
+        <div class="row mx-1 mt-n4 mt-lg-0 mx-md-0 mx-lg-4">
+          <div class="col-7 pr-lg-0">
+            <p class="trendingHeader ">TRENDING</p>
           </div>
           <div class="col text-right">
             <a href="#" class="text-decoration-none viewTrending">View all</a>
           </div>
         </div>
-        <div class="ovaler d-flex justify-content-md-center">
-          <div class="col-7 mx-2 col-lg-2  mx-lg-auto trendingChose item">
-            <figure class="figure mt-3">
-              <div class="figure-img">
-                <img
-                  class="figure-img img-fluid"
-                  src="..\..\src\assets\home\trending\image 3.png"
-                />
-                <a href="#"
-                  ><div class="row mt-3">
-                    <div class="col">
-                      <span
-                        class="ml-2 mb-4 px-2 py-1 text-white trendingChoseTittle"
-                        ><b>15 </b>Airlines
-                      </span>
-                    </div>
-                  </div></a
-                >
-              </div>
-              <figcaption class="figure-caption text-dark">
-                <p class="teksChoseTrending mb-0">Tokyo,</p>
-                <div class="row">
-                  <div class="col-6 teksChoseTrending2">
-                    Japan
-                  </div>
-                  <div class="col-6 my-auto text-right">
-                    <a href="#" class="dots">
-                      <img
-                        class="mr-2"
-                        src="..\..\src\assets\home\btn\iconright.png"
-                    /></a>
-                  </div>
-                </div>
-              </figcaption>
-            </figure>
+        <div class="row mx-1 mt-n2 mt-lg-0 mx-md-0 mb-lg-4 mx-lg-4">
+          <div class="col ">
+            <p class="trendingHeader2 ">Trending destinations</p>
           </div>
-          <div class="col-7 mx-2 col-lg-2 mx-lg-auto trendingChose">
-            <figure class="figure mt-3">
-              <div class="figure-img">
-                <img
-                  class="figure-img img-fluid"
-                  src="..\..\src\assets\home\trending\lvXeO04CxwQ.png"
-                />
-                <a href="#"
-                  ><div class="row mt-3">
-                    <div class="col">
-                      <span
-                        class="ml-2 mb-4 px-2 py-1 text-white trendingChoseTittle"
-                        ><b>22 </b>Airlines
-                      </span>
-                    </div>
-                  </div></a
-                >
-              </div>
-              <figcaption class="figure-caption text-dark">
-                <p class="teksChoseTrending mb-0">Barcelona,</p>
-                <div class="row">
-                  <div class="col-6 teksChoseTrending2">
-                    Spain
-                  </div>
-                  <div class="col-6 my-auto text-right">
-                    <a href="#" class="dots">
-                      <img
-                        class="mr-2"
-                        src="..\..\src\assets\home\btn\iconright.png"
-                    /></a>
-                  </div>
+        </div>
+        <div class="row justify-content-lg-center mt-n3 mt-lg-0 mx-lg-4">
+          <div
+            class="col-lg pl-5 py-5 py-md-5 py-lg-0 px-lg-3 ovaler mr-md-n5 mr-lg-0 d-flex justify-content-md-between"
+          >
+            <div
+              class="col-6 col-sm-4 mx-2 col-lg-2  mx-lg-0 trendingChose text-center"
+            >
+              <div class="hpLayer d-block- d-lg-none"></div>
+              <div class="hpLayer1 d-block- d-lg-none"></div>
+              <figure class="figure mt-3 text-left">
+                <div class="figure-img ">
+                  <img
+                    class="figure-img img-fluid"
+                    src="..\..\src\assets\home\trending\image 3.png"
+                  />
+                  <a href="#"
+                    ><div class="row mt-3">
+                      <div class="col">
+                        <span
+                          class="ml-2 mb-4 px-2 py-1 text-white trendingChoseTittle"
+                          ><b>15 </b>Airlines
+                        </span>
+                      </div>
+                    </div></a
+                  >
                 </div>
-              </figcaption>
-            </figure>
-          </div>
-          <div class="col-7 mx-2 col-lg-2 mx-lg-auto trendingChose">
-            <figure class="figure mt-3">
-              <div class="figure-img">
-                <img
-                  class="figure-img img-fluid"
-                  src="..\..\src\assets\home\trending\image 3.png"
-                />
-                <a href="#"
-                  ><div class="row mt-3">
-                    <div class="col">
-                      <span
-                        class="ml-2 mb-4 px-2 py-1 text-white trendingChoseTittle"
-                        ><b>15 </b>Airlines
-                      </span>
+                <figcaption class="figure-caption text-dark">
+                  <p class="teksChoseTrending mb-0">Tokyo,</p>
+                  <div class="row">
+                    <div class="col-6 teksChoseTrending2">
+                      Japan
                     </div>
-                  </div></a
-                >
-              </div>
-              <figcaption class="figure-caption text-dark">
-                <p class="teksChoseTrending mb-0">Tokyo,</p>
-                <div class="row">
-                  <div class="col-6 teksChoseTrending2">
-                    Japan
-                  </div>
-                  <div class="col-6 my-auto text-right">
-                    <a href="#" class="dots">
-                      <img
-                        class="mr-2"
-                        src="..\..\src\assets\home\btn\iconright.png"
-                    /></a>
-                  </div>
-                </div>
-              </figcaption>
-            </figure>
-          </div>
-          <div class="col-7 mx-2 col-lg-2 mx-lg-auto trendingChose">
-            <figure class="figure mt-3">
-              <div class="figure-img">
-                <img
-                  class="figure-img img-fluid"
-                  src="..\..\src\assets\home\trending\lvXeO04CxwQ.png"
-                />
-                <a href="#"
-                  ><div class="row mt-3">
-                    <div class="col">
-                      <span
-                        class="ml-2 mb-4 px-2 py-1 text-white trendingChoseTittle"
-                        ><b>15 </b>Airlines
-                      </span>
+                    <div class="col-6 my-auto text-right">
+                      <a href="#" class="dots">
+                        <img
+                          class="mr-2"
+                          src="..\..\src\assets\home\btn\iconright.png"
+                      /></a>
                     </div>
-                  </div></a
-                >
-              </div>
-              <figcaption class="figure-caption text-dark">
-                <p class="teksChoseTrending mb-0">Barcelona,</p>
-                <div class="row">
-                  <div class="col-6 teksChoseTrending2">
-                    Spain
                   </div>
-                  <div class="col-6 my-auto text-right">
-                    <a href="#" class="dots">
-                      <img
-                        class="mr-2"
-                        src="..\..\src\assets\home\btn\iconright.png"
-                    /></a>
-                  </div>
+                </figcaption>
+              </figure>
+            </div>
+
+            <div
+              class="col-6 col-sm-4 mx-2 col-lg-2 mx-lg-0 text-center trendingChose"
+            >
+              <figure class="figure mt-3 text-left">
+                <div class="figure-img">
+                  <img
+                    class="figure-img img-fluid"
+                    src="..\..\src\assets\home\trending\lvXeO04CxwQ.png"
+                  />
+                  <a href="#"
+                    ><div class="row mt-3">
+                      <div class="col">
+                        <span
+                          class="ml-2 mb-4 px-2 py-1 text-white trendingChoseTittle"
+                          ><b>22 </b>Airlines
+                        </span>
+                      </div>
+                    </div></a
+                  >
                 </div>
-              </figcaption>
-            </figure>
-          </div>
-          <div class="col-7 mx-2 col-lg-2 mx-lg-auto trendingChose">
-            <figure class="figure mt-3">
-              <div class="figure-img">
-                <img
-                  class="figure-img img-fluid"
-                  src="..\..\src\assets\home\trending\image 3.png"
-                />
-                <a href="#"
-                  ><div class="row mt-3">
-                    <div class="col">
-                      <span
-                        class="ml-2 mb-4 px-2 py-1 text-white trendingChoseTittle"
-                        ><b>15 </b>Airlines
-                      </span>
+                <figcaption class="figure-caption text-dark">
+                  <p class="teksChoseTrending mb-0">Barcelona,</p>
+                  <div class="row">
+                    <div class="col-6 teksChoseTrending2">
+                      Spain
                     </div>
-                  </div></a
-                >
-              </div>
-              <figcaption class="figure-caption text-dark">
-                <p class="teksChoseTrending mb-0">Tokyo,</p>
-                <div class="row">
-                  <div class="col-6 teksChoseTrending2">
-                    Japan
+                    <div class="col-6 my-auto text-right">
+                      <a href="#" class="dots">
+                        <img
+                          class="mr-2"
+                          src="..\..\src\assets\home\btn\iconright.png"
+                      /></a>
+                    </div>
                   </div>
-                  <div class="col-6 my-auto text-right">
-                    <a href="#" class="dots">
-                      <img
-                        class="mr-2"
-                        src="..\..\src\assets\home\btn\iconright.png"
-                    /></a>
-                  </div>
+                </figcaption>
+              </figure>
+            </div>
+            <div
+              class="col-6 col-sm-4 text-center mx-2 col-lg-2 mx-lg-0 trendingChose"
+            >
+              <figure class="figure mt-3 text-left">
+                <div class="figure-img">
+                  <img
+                    class="figure-img img-fluid"
+                    src="..\..\src\assets\home\trending\image 3.png"
+                  />
+                  <a href="#"
+                    ><div class="row mt-3">
+                      <div class="col">
+                        <span
+                          class="ml-2 mb-4 px-2 py-1 text-white trendingChoseTittle"
+                          ><b>15 </b>Airlines
+                        </span>
+                      </div>
+                    </div></a
+                  >
                 </div>
-              </figcaption>
-            </figure>
+                <figcaption class="figure-caption text-dark">
+                  <p class="teksChoseTrending mb-0">Tokyo,</p>
+                  <div class="row">
+                    <div class="col-6 teksChoseTrending2">
+                      Japan
+                    </div>
+                    <div class="col-6 my-auto text-right">
+                      <a href="#" class="dots">
+                        <img
+                          class="mr-2"
+                          src="..\..\src\assets\home\btn\iconright.png"
+                      /></a>
+                    </div>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+            <div
+              class="col-6 col-sm-4 text-center mx-2 col-lg-2 mx-lg-0 trendingChose"
+            >
+              <figure class="figure mt-3 text-left">
+                <div class="figure-img">
+                  <img
+                    class="figure-img img-fluid"
+                    src="..\..\src\assets\home\trending\lvXeO04CxwQ.png"
+                  />
+                  <a href="#"
+                    ><div class="row mt-3">
+                      <div class="col">
+                        <span
+                          class="ml-2 mb-4 px-2 py-1 text-white trendingChoseTittle"
+                          ><b>15 </b>Airlines
+                        </span>
+                      </div>
+                    </div></a
+                  >
+                </div>
+                <figcaption class="figure-caption text-dark">
+                  <p class="teksChoseTrending mb-0">Barcelona,</p>
+                  <div class="row">
+                    <div class="col-6 teksChoseTrending2">
+                      Spain
+                    </div>
+                    <div class="col-6 my-auto text-right">
+                      <a href="#" class="dots">
+                        <img
+                          class="mr-2"
+                          src="..\..\src\assets\home\btn\iconright.png"
+                      /></a>
+                    </div>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+            <div
+              class="col-6 text-center col-sm-4 mx-2 col-lg-2 mx-lg-0 trendingChose"
+            >
+              <figure class="figure mt-3 text-left">
+                <div class="figure-img">
+                  <img
+                    class="figure-img img-fluid"
+                    src="..\..\src\assets\home\trending\image 3.png"
+                  />
+                  <a href="#"
+                    ><div class="row mt-3">
+                      <div class="col">
+                        <span
+                          class="ml-2 mb-4 px-2 py-1 text-white trendingChoseTittle"
+                          ><b>15 </b>Airlines
+                        </span>
+                      </div>
+                    </div></a
+                  >
+                </div>
+                <figcaption class="figure-caption text-dark">
+                  <p class="teksChoseTrending mb-0">Tokyo,</p>
+                  <div class="row">
+                    <div class="col-6 teksChoseTrending2">
+                      Japan
+                    </div>
+                    <div class="col-6 my-auto text-right">
+                      <a href="#" class="dots">
+                        <img
+                          class="mr-2"
+                          src="..\..\src\assets\home\btn\iconright.png"
+                      /></a>
+                    </div>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
           </div>
         </div>
       </div>
     </section>
     <!-- hero -->
-    <div class="row marginBody bgHeader">
-      <div class="col destination pl-0 d-flex justify-content-center">
+    <div class=" row bgDesti bgHeader ">
+      <div class="col d-flex justify-content-center mx-2 mx-md-0 ">
         <img
           class="img-fluid"
           src="..\..\src\assets\home\destinations\bgDestination.png"
         />
       </div>
     </div>
-    <div class="container">
-      <div class="row top10 mt-5">
-        <div class="col-12 text-center">TOP 10</div>
-        <div class="col-12 text-center top10Dest mt-3">Top 10 destinations</div>
+    <div class="row top10 pb-3 mt-4 pb-sm-4 pb-lg-0 mt-lg-5  ">
+      <div class="col-12 text-center">TOP 10</div>
+      <div class="col-12 text-center top10Dest mt-lg-3">
+        Top 10 destinations
       </div>
-      <div class="row d-flex justify-content-center mt-5 mbDest">
-        <div class=" col-2 mx-2">
-          <figure class="figure">
-            <a href="#"
-              ><img
-                class="img-fluid roundedPicture rounded-circle"
-                src="..\..\src\assets\home\destinations\1.png"
-            /></a>
-            <figcaption class="mt-4 figure-caption text-center cityDestination">
-              PARIS
-            </figcaption>
-          </figure>
+    </div>
+    <div class="row mt-4 mt-sm-5 mt-lg-0">
+      <div class="col  text-center d-flex justify-content-center">
+        <div class="slidershow middle">
+          <div class="slides">
+            <input type="radio" name="r" id="r1" checked />
+            <input type="radio" name="r" id="r2" />
+            <div class="slide s1">
+              <div
+                class="row d-flex  justify-content-center mt-lg-5 text-uppercase"
+              >
+                <div
+                  class="col-2 mx-1 d-flex justify-content-center col-lg-2 mx-lg-2 destPict2 "
+                >
+                  <figure class="figure">
+                    <a href="#"
+                      ><img
+                        class="img-fluid roundedPicture"
+                        src="..\..\src\assets\home\destinations\1.png"
+                    /></a>
+                    <figcaption class="mt-lg-4 text-center cityDestination">
+                      bali
+                    </figcaption>
+                  </figure>
+                </div>
+                <div
+                  class="col-2 mx-1 d-flex justify-content-center col-lg-2 mx-lg-2 destPict2 "
+                >
+                  <figure class="figure">
+                    <a href="#"
+                      ><img
+                        class="img-fluid roundedPicture"
+                        src="..\..\src\assets\home\destinations\2.png"
+                    /></a>
+                    <figcaption class="mt-lg-4 text-center cityDestination">
+                      sydney
+                    </figcaption>
+                  </figure>
+                </div>
+                <div
+                  class="col-2 mx-1 d-flex justify-content-center col-lg-2 mx-lg-2 destPict2 "
+                >
+                  <figure class="figure">
+                    <a href="#"
+                      ><img
+                        class="img-fluid roundedPicture"
+                        src="..\..\src\assets\home\destinations\3.png"
+                    /></a>
+                    <figcaption class="mt-lg-4 text-center cityDestination">
+                      hongkong
+                    </figcaption>
+                  </figure>
+                </div>
+                <div
+                  class="col-2 mx-1 d-flex justify-content-center col-lg-2 mx-lg-2 destPict2 "
+                >
+                  <figure class="figure">
+                    <a href="#"
+                      ><img
+                        class="img-fluid roundedPicture"
+                        src="..\..\src\assets\home\destinations\5.png"
+                    /></a>
+                    <figcaption class="mt-lg-4 text-center cityDestination">
+                      agra
+                    </figcaption>
+                  </figure>
+                </div>
+                <div
+                  class="col-2 mx-1 d-flex justify-content-center col-lg-2 mx-lg-2 destPict2 "
+                >
+                  <figure class="figure">
+                    <a href="#"
+                      ><img
+                        class="img-fluid roundedPicture"
+                        src="..\..\src\assets\home\destinations\4.png"
+                    /></a>
+                    <figcaption class="mt-lg-4 text-center cityDestination">
+                      PARIS
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+            <div class="slide">
+              <div
+                class="row d-flex justify-content-center mt-lg-5 text-uppercase"
+              >
+                <div
+                  class="col-2 mx-1 d-flex justify-content-center col-lg-2 mx-lg-2 destPict2 "
+                >
+                  <figure class="figure">
+                    <a href="#"
+                      ><img
+                        class="img-fluid roundedPicture"
+                        src="..\..\src\assets\home\destinationPicture\3.jpg"
+                    /></a>
+                    <figcaption class="mt-lg-4 text-center cityDestination">
+                      New York
+                    </figcaption>
+                  </figure>
+                </div>
+                <div
+                  class="col-2 mx-1 d-flex justify-content-center col-lg-2 mx-lg-2 destPict2 "
+                >
+                  <figure class="figure">
+                    <a href="#"
+                      ><img
+                        class="img-fluid roundedPicture"
+                        src="..\..\src\assets\home\destinationPicture\1.jpg"
+                    /></a>
+                    <figcaption class="mt-lg-4 text-center cityDestination">
+                      Lombok
+                    </figcaption>
+                  </figure>
+                </div>
+                <div
+                  class="col-2 mx-1 d-flex justify-content-center col-lg-2 mx-lg-2 destPict2 "
+                >
+                  <figure class="figure">
+                    <a href="#"
+                      ><img
+                        class="img-fluid roundedPicture"
+                        src="..\..\src\assets\home\destinationPicture\2.jpg"
+                    /></a>
+                    <figcaption class="mt-lg-4 text-center cityDestination">
+                      dubai
+                    </figcaption>
+                  </figure>
+                </div>
+                <div
+                  class="col-2 mx-1 d-flex justify-content-center col-lg-2 mx-lg-2 destPict2 "
+                >
+                  <figure class="figure">
+                    <a href="#"
+                      ><img
+                        class="img-fluid roundedPicture"
+                        src="..\..\src\assets\home\destinationPicture\4.jpg"
+                    /></a>
+                    <figcaption class="mt-lg-4 text-center cityDestination">
+                      japan
+                    </figcaption>
+                  </figure>
+                </div>
+                <div
+                  class="col-2 mx-1 d-flex justify-content-center col-lg-2 mx-lg-2 destPict2 "
+                >
+                  <figure class="figure">
+                    <a href="#"
+                      ><img
+                        class="img-fluid roundedPicture"
+                        src="..\..\src\assets\home\destinationPicture\5.jpg"
+                    /></a>
+                    <figcaption class="mt-lg-4 text-center cityDestination">
+                      singapore
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-2 mx-2">
-          <figure class="figure">
-            <a href="#"
-              ><img
-                class="img-fluid roundedPicture rounded-circle"
-                src="..\..\src\assets\home\destinations\2.png"
-            /></a>
-            <figcaption class="mt-4 figure-caption text-center cityDestination">
-              PARIS
-            </figcaption>
-          </figure>
-        </div>
-        <div class="col-2 mx-2">
-          <figure class="figure">
-            <a href="#"
-              ><img
-                class="img-fluid roundedPicture rounded-circle"
-                src="..\..\src\assets\home\destinations\3.png"
-            /></a>
-            <figcaption class="mt-4 figure-caption text-center cityDestination">
-              PARIS
-            </figcaption>
-          </figure>
-        </div>
-        <div class="col-2 mx-2">
-          <figure class="figure">
-            <a href="#"
-              ><img
-                class="img-fluid roundedPicture rounded-circle"
-                src="..\..\src\assets\home\destinations\4.png"
-            /></a>
-            <figcaption class="mt-4 figure-caption text-center cityDestination">
-              PARIS
-            </figcaption>
-          </figure>
-        </div>
-        <div class="col-2 mx-2">
-          <figure class="figure">
-            <a href="#"
-              ><img
-                class="img-fluid roundedPicture rounded-circle"
-                src="..\..\src\assets\home\destinations\5.png"
-            /></a>
-            <figcaption class="mt-4 figure-caption text-center cityDestination">
-              PARIS
-            </figcaption>
-          </figure>
-        </div>
+      </div>
+    </div>
+    <div class="row  mt-1 mt-md-3 mt-lg-5 mb-n4 pb-lg-5">
+      <div class="col d-flex justify-content-center">
+        <label for="r1" class="mr-4  buttonDest d-flex justify-content-center"
+          ><img
+            class="align-self-center"
+            src="../../src\assets\home\btn\btnback (1).png"
+            alt=""
+        /></label>
+        <label for="r2" class="ml-4 d-flex buttonDest justify-content-center "
+          ><img
+            class="align-self-center"
+            style="transform:scaleX(-1);"
+            src="../../src\assets\home\btn\btnback (1).png"
+        /></label>
       </div>
     </div>
     <Footer />
@@ -464,6 +605,83 @@
 </template>
 
 <style>
+/* Destination */
+.cityDestination {
+  font-family: Poppins;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #ffffff !important;
+}
+.top10Dest {
+  font-family: Poppins;
+  font-weight: 600;
+  font-size: 24px;
+  color: #ffffff;
+}
+.top10 {
+  font-family: Poppins;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.3em;
+  color: #ffffff;
+}
+
+.roundedPicture {
+  border: 4px solid rgb(255, 255, 255);
+  padding: 10px;
+  border-radius: 25px;
+}
+
+.destPict2 img {
+  border-radius: 50%;
+}
+.slidershow {
+  width: 1106px;
+  overflow: hidden;
+}
+
+.buttonDest {
+  width: 60px;
+  height: 42px;
+  border: 1.6px solid #ffffff;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  /* margin-bottom: 200px; */
+}
+.buttonDest:hover {
+  background-color: white;
+}
+
+.buttonDest:hover img {
+  filter: invert(48%) sepia(64%) saturate(3507%) hue-rotate(192deg)
+    brightness(104%) contrast(101%);
+}
+
+input[name="r"] {
+  position: absolute;
+  visibility: hidden;
+}
+
+.slides {
+  width: 500%;
+  height: 100%;
+  display: flex;
+}
+
+.slide {
+  width: 20%;
+  transition: 0.9s;
+}
+
+#r1:checked ~ .s1 {
+  margin-left: 0;
+}
+#r2:checked ~ .s1 {
+  margin-left: -20%;
+}
+/* end Destinations */
+/* @media screen and (min-width: 768px) { */
 /* background header */
 .bgHeader img {
   position: absolute;
@@ -477,15 +695,15 @@
   border-radius: 0px 60px 60px 0px;
 }
 .pictHeader2 {
-  top: -50px;
+  top: -80px;
   right: 0px;
   border-radius: 60px 0px 0px 60px;
 }
 .pictHeader3 {
   top: 500px;
-  right: 190px;
-  border-radius: 60px 0px 0px 60px;
+  right: 240px;
 }
+
 /* teksBody */
 .smallTextHeader {
   word-spacing: 5px;
@@ -505,6 +723,7 @@
   font-family: Poppins;
   font-weight: 600;
   font-size: 54px;
+  margin-top: 60px;
 }
 .hey {
   font-family: Poppins;
@@ -623,12 +842,6 @@
 }
 /* hero */
 
-.cityDestination {
-  font-family: Poppins;
-  font-size: 18px;
-  text-transform: uppercase;
-  color: #ffffff !important;
-}
 .mbDest {
   margin-bottom: 290px;
 }
@@ -636,19 +849,6 @@
   border: 4px solid rgb(255, 255, 255);
   padding: 10px;
   border-radius: 25px;
-}
-.top10Dest {
-  font-family: Poppins;
-  font-weight: 600;
-  font-size: 24px;
-  color: #ffffff;
-}
-.top10 {
-  font-family: Poppins;
-  font-weight: 500;
-  font-size: 14px;
-  letter-spacing: 0.3em;
-  color: #ffffff;
 }
 
 .figure-img {
@@ -711,22 +911,192 @@
   font-size: 14px;
   color: #ffffff;
 }
-@media screen and (max-width: 450px) {
+.bgDesti {
+  margin-top: 120px;
+}
+
+@media screen and (max-width: 1098px) {
+  .pictHeader3 {
+  top: 500px;
+  right: 0px !important;
+    height: 240px !important;
+  }
+  .pictHeader1{
+  top: 290px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .bgDesti {
+    margin-top: 100px;
+  }
+  .hpLayer {
+    position: absolute;
+    width: 166px;
+    height: 85%;
+    top: 25px;
+    left: -40px;
+    background: #ffffff;
+    box-shadow: 0px 8px 27px rgba(14, 63, 108, 0.25);
+    border-radius: 20px;
+    z-index: -1;
+    opacity: 0.3;
+  }
+  .hpLayer1 {
+    position: absolute;
+    width: 166px;
+    height: 95%;
+    top: 10px;
+    left: -20px;
+    background: #ffffff;
+    box-shadow: 0px 8px 27px rgba(14, 63, 108, 0.35);
+    border-radius: 20px;
+    z-index: -1;
+    opacity: 0.4;
+  }
+  .ovaler {
+    overflow-x: auto;
+  }
+  .ovaler::-webkit-scrollbar{
+    width:0;
+  }
+  .pictHeader3 {
+    top: 600px;
+    height: 230px !important;
+    right: 0px;
+  }
+  .pictHeader2 {
+    top: 90px;
+    left: 0px;
+  }
   .pictHeader1 {
-    top: 100px;
-    height: 180px !important;
-    right: 55px;
+    top: 300px;
+    left: -50px;
+    right: 0px;
+    border-radius: 0px 60px 60px 0px;
+    height: 350px !important;
+  }
+  .textHeader {
+    font-size: 46px;
+    margin-top: -50px;
+  }
+  .textHeader2 {
+    font-size: 46px;
+  }
+  .smallTextHeader {
+    word-spacing: 0px;
+    font-size: 20px;
+    font-weight: 200 !important;
+    color: #979797;
+    margin-bottom: 30px;
+  }
+}
+@media screen and (max-width: 550px) {
+  /* destinations */
+  .cityDestination {
+    margin-top: 5px;
+    font-family: Poppins;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #ffffff !important;
+  }
+  .destPict2 img {
+    border-radius: 50%;
+    max-width: 63px;
+  }
+  .bgHeader img {
+    height: 258px;
+    width: 600px !important;
+  }
+  .top10Dest {
+    font-size: 16px;
+  }
+  .top10 {
+    font-size: 12px;
+  }
+  .roundedPicture {
+    border: 2px solid rgb(255, 255, 255);
+    padding: 5px;
+  }
+  .slidershow {
+    width: 350px;
+    overflow: hidden;
+  }
+  .bgDesti {
+    margin-top: 40px;
+  }
+  .buttonDest {
+    width: 54px;
+    height: 30px;
+    border: 1.6px solid #ffffff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom:40px;
+  }
+  .buttonDest img {
+    height: 15px;
+  }
+
+  /* end Destinations */
+
+  .bgHeader {
+    position: relative;
+  }
+  .trendingHeader2 {
+    font-weight: 500;
+    font-size: 20px;
+    color: #000000;
+  }
+  .trending {
+    margin-top: 105px !important;
+  }
+  .pictHeader1 {
+    top: 130px;
+    height: 200px !important;
+    right: 0px;
+  }
+  .pictHeader2 {
+    top: -70px;
+    left: 0px;
   }
   .pictHeader3 {
     top: 570px;
-    right: -70px;
+    right: -0px;
+    left: 40px;
+    height: 150px !important;
+  }
+  .hpLayer {
+    position: absolute;
+    width: 166px;
+    height: 85%;
+    top: 25px;
+    left: -40px;
+    background: #ffffff;
+    box-shadow: 0px 8px 27px rgba(14, 63, 108, 0.25);
+    border-radius: 20px;
+    z-index: -1;
+    opacity: 0.3;
+  }
+  .hpLayer1 {
+    position: absolute;
+    width: 145px;
+    height: 95%;
+    top: 10px;
+    left: -20px;
+    background: #ffffff;
+    box-shadow: 0px 8px 27px rgba(14, 63, 108, 0.35);
+    border-radius: 20px;
+    z-index: -1;
+    opacity: 0.4;
   }
   .textHeader2 {
     font-size: 36px;
   }
   .textHeader {
     font-size: 36px;
-    margin-top: -100px;
+    margin-top: -130px;
+    margin-left: 0px;
   }
   .marginBody {
     margin-top: 180px !important;
@@ -742,7 +1112,6 @@
     font-size: 15px;
   }
   .ovaler {
-    display: flex;
     overflow-x: auto;
   }
   .smallTextHeader {
@@ -750,13 +1119,17 @@
     font-size: 15px;
     font-weight: 200 !important;
     color: #979797;
+    margin-left: 0px;
   }
+
 }
 </style>
 
 <script>
+
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+
 export default {
   components: {
     Navbar,
