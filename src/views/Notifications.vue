@@ -25,6 +25,7 @@
                 </div>
               </div>
               <Notif />
+              <!-- <Chat/> -->
             </div>
           </div>
         </div>
@@ -88,11 +89,13 @@ color: #2395FF;
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Notif from '../components/MessageNotif'
+// import Chat from '../components/Chat'
 export default {
   components: {
     Navbar,
     Footer,
     Notif
+    // Chat
   }
 }
 </script>

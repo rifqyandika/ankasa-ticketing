@@ -1,13 +1,13 @@
 <template>
   <div
-    class="container-fluid "
+    class="container-fluid"
     style="overflow: hidden !important;
     overflow-x: hidden !important;"
   >
     <Navbar />
     <!-- background-header -->
     <div class="row marginBody bgHeader">
-      <div class="col pl-0 ">
+      <div class="col col-lg-7 col-xl pl-0 ">
         <img
           class="img-fluid pictHeader1"
           src="..\..\src\assets\home\Pict1.jpg"
@@ -19,21 +19,21 @@
           src="..\..\src\assets\home\Pict2.jpg"
         />
         <img
-          class="img-fluid  pictHeader3"
+          class="img-fluid  pictHeader3 "
           src="..\..\src\assets\home\vector 6.png"
         />
       </div>
     </div>
     <!-- teksHeader -->
-    <div class="container ">
+    <div class="container  ">
       <div class="row ">
-        <div class="mt-4 mt-lg-0 ml-md-4 ml-lg-0 col-12 col-lg-5 pl-lg-0">
-          <p class="textHeader">
-            Find your <span class="textHeader2">Flight</span>
+        <div class="mt-2 mt-sm-3 mt-lg-n4  ml-md-4 ml-lg-0 col-12 col-lg-6 col-xl-5 pl-lg-0 ">
+          <p class="textHeader ml-xl-n4">
+            Find your <span class="textHeader2 pb-4">Flight</span>
           </p>
-          <p class="mt-n3 smallTextHeader">and explore the world with us</p>
+          <p class="mt-n3 mt-lg-n4 ml-xl-n4 smallTextHeader">and explore the world with us</p>
         </div>
-        <div class="mx-lg-1 col-12 col-sm-10 col-lg-4 boxBuy mx-auto ">
+        <div class="mx-lg-1 col-12 col-sm-10 col-lg-5 col-xl-4 boxBuy mx-auto ">
           <div class="mx-3 my-1">
             <div class="row">
               <div class="col mt-3">
@@ -198,7 +198,7 @@
     <!-- sectionTrending -->
     <section class="trending">
       <div class="container-fluid pl-0 pr-0 ml-0   ">
-        <div class="row mx-1 mt-n4 mt-lg-0 mx-md-0 mx-lg-3">
+        <div class="row mx-1 mt-n4 mt-lg-0 mx-md-0 mx-lg-4">
           <div class="col-7 pr-lg-0">
             <p class="trendingHeader ">TRENDING</p>
           </div>
@@ -584,7 +584,7 @@
         </div>
       </div>
     </div>
-    <div class="row  mt-1 mt-lg-5 ">
+    <div class="row  mt-1 mt-md-3 mt-lg-5 mb-n4 pb-lg-5">
       <div class="col d-flex justify-content-center">
         <label for="r1" class="mr-4  buttonDest d-flex justify-content-center"
           ><img
@@ -702,8 +702,8 @@ input[name="r"] {
 .pictHeader3 {
   top: 500px;
   right: 240px;
-  border-radius: 60px 0px 0px 60px;
 }
+
 /* teksBody */
 .smallTextHeader {
   word-spacing: 5px;
@@ -711,8 +711,6 @@ input[name="r"] {
   font-size: 18px;
   line-height: 221.43%;
   color: #6b6b6b;
-
-  margin-left: -40px;
 }
 
 .textHeader2 {
@@ -726,7 +724,6 @@ input[name="r"] {
   font-weight: 600;
   font-size: 54px;
   margin-top: 60px;
-  margin-left: -40px;
 }
 .hey {
   font-family: Poppins;
@@ -917,6 +914,18 @@ input[name="r"] {
 .bgDesti {
   margin-top: 120px;
 }
+
+@media screen and (max-width: 1098px) {
+  .pictHeader3 {
+  top: 500px;
+  right: 0px !important;
+    height: 240px !important;
+  }
+  .pictHeader1{
+  top: 290px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .bgDesti {
     margin-top: 100px;
@@ -947,6 +956,9 @@ input[name="r"] {
   }
   .ovaler {
     overflow-x: auto;
+  }
+  .ovaler::-webkit-scrollbar{
+    width:0;
   }
   .pictHeader3 {
     top: 600px;
@@ -1114,8 +1126,10 @@ input[name="r"] {
 </style>
 
 <script>
+
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+
 export default {
   components: {
     Navbar,
