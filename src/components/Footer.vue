@@ -1,5 +1,5 @@
 <template>
-  <footer class="mt-5">
+  <footer class="marginFirst">
     <div class="container">
       <div class="row">
         <div class="col-12 col-md-9  col-lg-5 ">
@@ -130,6 +130,9 @@
 </template>
 
 <style>
+.marginFirst {
+  margin-top: 170px;
+}
 .logoStore img {
   height: 53px;
 }
@@ -193,7 +196,7 @@ a:hover {
 }
 @media (max-width: 576px) {
   .outer {
-  padding: 0px 20px;
-}
+    padding: 0px 20px;
+  }
 }
 </style>

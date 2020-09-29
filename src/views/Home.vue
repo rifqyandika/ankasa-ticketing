@@ -647,7 +647,7 @@
   border-radius: 10px;
   cursor: pointer;
   transition: 0.3s;
-  margin-bottom: 200px;
+  /* margin-bottom: 200px; */
 }
 .buttonDest:hover {
   background-color: white;

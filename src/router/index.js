@@ -8,6 +8,7 @@ import store from '../store'
 import Profile from '../views/Userprofile.vue'
 import Booking from '../views/Mybooking.vue'
 import Reset from '../views/Resetpassword.vue'
+import Notifications from '../views/Notifications.vue'
 
 Vue.use(VueRouter)
 
@@ -52,6 +53,12 @@ const routes = [
     path: '/booking',
     name: 'Booking',
     component: Booking,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/notifications',
+    name: 'notifications',
+    component: Notifications,
     meta: { requiresAuth: true }
   }
 

@@ -21,8 +21,8 @@
       <b-navbar-nav class="ml-auto" v-if="logged">
           <b-navbar-nav class="mr-auto notif-chat">
             <b-nav-item href="#" class="d-block d-md-none">Chats</b-nav-item>
-            <b-nav-item href="#" class="d-block d-md-none">Notifications</b-nav-item>
-            <b-nav-item href="#" class="d-none d-md-flex"><img src="../assets/icons/mail.png"></b-nav-item>
+            <b-nav-item href="/notifications" class="d-block d-md-none">Notifications</b-nav-item>
+            <b-nav-item href="/notifications" class="d-none d-md-flex"><img src="../assets/icons/mail.png"></b-nav-item>
             <b-nav-item href="#" class="d-none d-md-flex"><img src="../assets/icons/bell.png"></b-nav-item>
           </b-navbar-nav>
           <b-nav-item-dropdown toggle-class="text-decoration-none mr-5" no-caret right>
