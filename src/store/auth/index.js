@@ -58,6 +58,18 @@ const actions = {
           resolve(response.message)
         })
     })
+  },
+  resetPassword (context, payload) {
+    console.log(payload)
+    // return new Promise((resolve, reject) => {
+    //   axios.post(`${url}/user/register`, payload)
+    //     .then((response) => {
+    //       resolve(response.data)
+    //     })
+    //     .catch((err) => {
+    //       reject(err)
+    //     })
+    // })
   }
 }
 
