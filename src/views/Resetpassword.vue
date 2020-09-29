@@ -53,7 +53,7 @@ export default {
       form: {
         password: '',
         confirmpwd: '',
-        key: ''
+        key: this.$route.query.key
       },
       errorcheck: ''
     }
