@@ -10,6 +10,9 @@ import Booking from '../views/Mybooking.vue'
 import Reset from '../views/Resetpassword.vue'
 import Notifications from '../views/Notifications.vue'
 import BookingPass from '../views/BookingPass.vue'
+import FlightDetails from '../views/FlightDetails.vue'
+import AdminLogin from '../views/Admin/Login.vue'
+import AdminHome from '../views/Admin/Home.vue'
 
 Vue.use(VueRouter)
 
@@ -57,6 +60,12 @@ const routes = [
     meta: { requiresAuth: true }
   },
   {
+    path: '/flightdetails',
+    name: 'FlightDetails',
+    component: FlightDetails,
+    meta: { requiresAuth: true }
+  },
+  {
     path: '/notifications',
     name: 'notifications',
     component: Notifications,
@@ -67,6 +76,18 @@ const routes = [
     name: 'booking-pass',
     component: BookingPass,
     meta: { requiresAuth: true }
+  },
+  {
+    path: '/admin',
+    name: 'admin',
+    component: AdminLogin
+    // meta: { requiresAuth: true }
+  },
+  {
+    path: '/admin/home',
+    name: 'admin',
+    component: AdminHome
+    // meta: { requiresAuth: true }
   }
 
 ]

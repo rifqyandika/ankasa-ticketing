@@ -99,10 +99,10 @@ export default {
     color: rgba(0, 0, 0, 0.5);
     border: none;
 }
-.navbar {
+/* .navbar {
     padding: 0.5rem 1rem;
     margin: 10px 0px;
-}
+} */
 .divsearch{
     background: #F5F5F5;
     color: #6B6B6B;
