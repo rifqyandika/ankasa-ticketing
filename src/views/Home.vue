@@ -634,9 +634,10 @@ export default {
       parseInt(this.dataForBook.classFlight)
       this.getFlight(this.dataForBook)
         .then((response) => {
-          setTimeout(() => {
-            this.$router.push({ path: '/search', query: { origin: this.dataForBook.origin, destination: this.dataForBook.destination } })
-          }, 2000)
+          const adultPerson = parseInt(this.dataForBook.adultPerson)
+          const childPerson = parseInt(this.dataForBook.childPerson)
+          const person = adultPerson + childPerson
+          this.$router.push({ path: '/search', query: { origin: this.dataForBook.origin, destination: this.dataForBook.destination, date: this.dataForBook.date, totalPerson: person } })
         })
     },
     ...mapActions({

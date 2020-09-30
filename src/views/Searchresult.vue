@@ -18,15 +18,15 @@
               <p>to</p>
             </div>
             <div class="col-12 justify-content-between d-flex flex-row">
-              <p>{{origin}} (Undetected)</p>
+              <p>{{origin}}</p>
               <img
                 src="../assets/icons/switch-white.svg"
                 style="width: 17px; height: 17px"
               />
-              <p>{{destination}} (Can't Get)</p>
+              <p>{{destination}}</p>
             </div>
             <div class="col-12 justify-content-between d-flex flex-row lato">
-              <p>Monday, 20 July 20</p>
+              <p>{{datte}}</p>
               <p>6 passenger</p>
               <p>Economy</p>
             </div>
@@ -381,6 +381,7 @@
             <p>Salah ticket</p>
             <p>Sort by <img src="../assets/icons/siwtch-sort.png" /></p>
           </div>
+          <form action="" @submit="proceedBooking">
           <div class="col-12 card-ticket" v-for="flight in dataFlight" :key="flight.id">
             <div class="col-12 d-flex flex-row">
               <div class="col-3"><img :src="`${url}/${flight.image_airlines}`" ></div>
@@ -418,8 +419,8 @@
                 <div class="col d-flex">
                   <div>{{flight.price}}</div>
                 </div>
-                <div class="col d-flex">
-                  <button class="btn btn-primary btnselect ml-auto">
+                <div class="col d-flex" >
+                  <button type="submit" class="btn btn-primary btnselect ml-auto" @click.prevent="proceedBooking(flight.code, flight.airlines, flight.image_airlines, flight.departure, flight.arrived, flight.price)">
                     Select
                   </button>
                 </div>
@@ -454,6 +455,7 @@
               </b-navbar>
             </div>
           </div>
+          </form>
         </div>
       </div>
     </div>
@@ -480,13 +482,27 @@ export default {
       url: url,
       dataflight: [],
       origin: this.$route.query.origin,
-      destination: this.$route.query.destination
+      destination: this.$route.query.destination,
+      datte: this.$route.query.date,
+      person: this.$route.query.totalPerson
     }
   },
   methods: {
     ...mapActions({
       getFlight: 'flight/getDataFlight'
-    })
+    }),
+    proceedBooking (code, airlines, image, departure, arrived, price) {
+      const detailbooking = {
+        code,
+        airlines,
+        image,
+        departure,
+        arrived,
+        price
+      }
+      localStorage.setItem('data', JSON.stringify(detailbooking))
+      this.$router.push({ path: '/flightdetails', query: { origin: this.origin, destination: this.destination, date: this.datte, totalPerson: this.person } })
+    }
   },
   computed: {
     ...mapGetters({

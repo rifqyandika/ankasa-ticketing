@@ -24,7 +24,7 @@ background: #F5F6FA;"
         <div class="col-8 boxperson pb-4 ">
           <div class="row form-group mx-2 my-2 ">
             <div class="col-12">
-              <form @submit.prevent="onLogin">
+              <form >
                 <div class="row ">
                   <div class="col-12 ">
                     <label class="mt-4">Full Name</label>
@@ -78,28 +78,28 @@ background: #F5F6FA;"
         <div class="col-4 boxperson" style="margin-bottom:60px;">
           <div class="row mt-4">
             <div class="col-4  mx-2">
-              <img class="logoAirlines" src="" />
+              <img :src="`${url}/${databooking.image}`" />
             </div>
             <div class="col textPlanes my-auto ">
-              Garuda Indonesia
+              {{databooking.airlines}}
             </div>
           </div>
           <div class="row mt-3 routeTeks  ">
-            <div class="col-4  routeFlights ml-2">Medan (IDN)</div>
+            <div class="col-4  routeFlights ml-2">{{origin}}</div>
             <div class="col-1  ">
               <a href="#" class="mx-auto"
                 ><img src="..\assets\icons\Vector (8).png"
               /></a>
             </div>
-            <div class="col-5 ml-1 routeFlights">Tokyo (JPN)</div>
+            <div class="col-5 ml-1 routeFlights">{{destination}}</div>
           </div>
           <div class="row mt-2">
             <div class="ml-2 col-5  daysFlight">
-              Sunday, 15 August 2020
+              {{datte}}
             </div>
             <div><p class="mt-n1">•</p></div>
             <div class="ml-2 col-5  daysFlight">
-              12:33 - 15:21
+              {{databooking.departure}} - {{databooking.arrived}}
             </div>
           </div>
           <div class="row mt-3">
@@ -125,7 +125,7 @@ background: #F5F6FA;"
             </div>
             <div class="mr-2 my-auto col text-right totalRp">
               <b-navbar toggleable>
-                <h7 href="#" class="totalRp">$ 145,00</h7>
+                <h7 href="#" class="totalRp">{{databooking.price * person}}</h7>
 
                 <b-navbar-toggle target="navbar-toggle-collapse">
                   <template v-slot:default="{ expanded }">
@@ -142,9 +142,7 @@ background: #F5F6FA;"
           </div>
           <b-collapse id="navbar-toggle-collapse" class="border-0">
             <b-navbar-nav>
-              <b-nav-item>Gorengan 2000</b-nav-item>
-              <b-nav-item>Kopi 3000</b-nav-item>
-              <b-nav-item>Tai cicek 2000</b-nav-item>
+              <b-nav-item>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt, aliquid!</b-nav-item>
             </b-navbar-nav>
           </b-collapse>
         </div>
@@ -159,7 +157,7 @@ background: #F5F6FA;"
               <form @submit.prevent="onLogin">
                 <div class="row boxPassenger mt-3">
                   <div class="col-6 mt-3 pasengerDetails my-3">
-                    Passenger : 1 Adult
+                    Passenger : {{ person }}
                   </div>
                   <div class="col mx-3 pasengerDetails text-right my-3">
                     <div class="row  justify-content-end">
@@ -259,11 +257,22 @@ background: #F5F6FA;"
 
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+const { url } = require('../helper/env')
 
 export default {
   components: {
     Navbar,
     Footer
+  },
+  data () {
+    return {
+      databooking: JSON.parse(localStorage.getItem('data')),
+      origin: this.$route.query.origin,
+      destination: this.$route.query.destination,
+      datte: this.$route.query.date,
+      person: this.$route.query.totalPerson,
+      url: url
+    }
   }
 }
 </script>

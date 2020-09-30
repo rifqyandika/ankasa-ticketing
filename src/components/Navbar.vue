@@ -1,7 +1,7 @@
 <template>
     <div>
   <b-navbar toggleable="md" type="light"  class="bg-lighto h-158 mt-10">
-    <b-navbar-brand href="" class="d-flex" to="/">
+    <b-navbar-brand href="" class="d-flex" @click="home">
         <img src="../assets/icons/ankasa-smallicon.png" alt="" class="ml-sm-5 mr-2 ml-1">
         <h3>Ankasa</h3>
     </b-navbar-brand>
@@ -74,7 +74,10 @@ export default {
     ...mapActions({
       getUser: 'user/getUserDetail',
       onUpdateData: 'user/updateData'
-    })
+    }),
+    home () {
+      window.location = '/'
+    }
   },
   mounted () {
     const token = localStorage.getItem('token')
