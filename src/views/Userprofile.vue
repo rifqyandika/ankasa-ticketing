@@ -210,7 +210,7 @@ export default {
       localStorage.removeItem('token')
       localStorage.removeItem('refreshToken')
       localStorage.removeItem('id')
-      window.location = '/'
+      this.router.push({ path: '/' })
     },
     showModal () {
       // this.$refs['my-modal'].show()

@@ -18,17 +18,17 @@
               <p>to</p>
             </div>
             <div class="col-12 justify-content-between d-flex flex-row">
-              <p>Medan (IDN)</p>
+              <p>{{origin}}</p>
               <img
                 src="../assets/icons/switch-white.svg"
                 style="width: 17px; height: 17px"
               />
-              <p>Tokyo (JPN)</p>
+              <p>{{destination}}</p>
             </div>
             <div class="col-12 justify-content-between d-flex flex-row lato">
-              <p>Monday, 20 July 20</p>
-              <p>6 passenger</p>
-              <p>Economy</p>
+              <p>{{date}}</p>
+              <p>{{passenger}}passenger</p>
+              <p>{{ classFlight }}</p>
             </div>
           </div>
         </div>
@@ -386,20 +386,20 @@
               <div class="col-3"><img :src="`${url}/${flight.image_airlines}`" ></div>
               <div class="col-9">{{flight.airlines}}</div>
             </div>
-            <div class="col-12 d-flex flex-row">
+            <div class="col-12 d-flex flex-row mb-2 mt-2">
               <div class="col-5 d-flex align-items-center">
                 <div class="col-6 d-flex">
-                  <h5>IDN</h5>
+                  <h5>{{flight.origin_code}}</h5>
                   <img src="../assets/icons/miniplane.svg" class="mr-2 ml-2" />
-                  <h5>JPN</h5>
+                  <h5>{{flight.destination_code}}</h5>
                 </div>
                 <div class="col-6">
-                  <div class="d-flex flex-column">
-                    <p class="m-0" style="font-size: 12px">{{flight.flight_duration}}</p>
-                    <p class="m-0" style="font-size: 12px" v-if="flight.transit===0">( Direct )</p>
-                    <p class="m-0" style="font-size: 12px" v-else-if="flight.transit===1">( 1 Transit )</p>
-                    <p class="m-0" style="font-size: 12px" v-else-if="flight.transit===2">( Transit 2+ )</p>
-                    <p class="m-0" style="font-size: 12px" v-else>No COMMENT!!!!</p>
+                  <div class="d-flex flex-column justify-content-end">
+                    <p class="m-0 d-flex justify-content-end" style="font-size: 12px">{{flight.flight_duration}}</p>
+                    <p class="m-0 d-flex justify-content-end" style="font-size: 12px" v-if="flight.transit===0">( Direct )</p>
+                    <p class="m-0 d-flex justify-content-end" style="font-size: 12px" v-else-if="flight.transit===1">( 1 Transit )</p>
+                    <p class="m-0 d-flex justify-content-end" style="font-size: 12px" v-else-if="flight.transit===2">( Transit 2+ )</p>
+                    <p class="m-0 d-flex justify-content-end" style="font-size: 12px" v-else>No COMMENT!!!!</p>
                   </div>
                 </div>
               </div>
@@ -428,7 +428,7 @@
             <div class="col-12 d-flex flex-row">
               <b-navbar toggleable variant="" style="padding: 0">
                 <b-navbar-toggle
-                  target="navbar-toggle-collapse3"
+                  :target="`navbar-toggle-collapse${flight.id}`"
                   class="d-none d-sm-block"
                   style="border: none; padding: 0"
                 >
@@ -443,7 +443,7 @@
                     </p>
                   </template>
                 </b-navbar-toggle>
-                <b-collapse id="navbar-toggle-collapse3" is-nav>
+                <b-collapse :id="`navbar-toggle-collapse${flight.id}`" is-nav>
                   <b-navbar-nav class="mr-auto">
                     <p style="color: #000" class="mt-3">
                       Lorem ipsum dolor sit amet consectetur, adipisicing elit.
@@ -477,7 +477,13 @@ export default {
       luggage: true,
       meals: true,
       wifi: true,
-      url: url
+      url: url,
+      dataflight: [],
+      origin: this.$route.query.origin,
+      destination: this.$route.query.destination,
+      date: this.$route.query.destination,
+      passenger: this.$route.query.destination,
+      classFlight: this.dataForBook.classFlight
     }
   },
   methods: {
@@ -497,7 +503,7 @@ export default {
     //       // console.log(response)
     //       // console.log(this.dataUser)
     //     })
-    console.log(this.dataFlight)
+    console.log(this.dataflight)
   }
 }
 </script>
@@ -511,6 +517,10 @@ export default {
 .col-3,
 .col-9 {
   padding: 0;
+}
+label {
+  color: black;
+  padding: 10px;
 }
 .container-fluid {
   padding: 0;

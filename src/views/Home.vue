@@ -64,10 +64,7 @@
                 <div class="row routeTeks">
                   <div class="col">
                     <select class="custom-select" v-model="dataForBook.origin">
-                      <option selected >Choose...</option>
-                      <option value="1">Indonesia</option>
-                      <option value="2">Arab</option>
-                      <option value="3">China</option>
+                      <option :value="city.city_name" v-for="city in getDataCity"  :key="city.id">{{city.city_name}}</option>
                     </select>
                   </div>
                   <div class="col-100  text-center">
@@ -76,15 +73,13 @@
                     /></div>
                   </div>
                   <div class="col">
-                    <select class="custom-select" v-model="dataForBook.destination">
-                      <option value="1">Indonesia</option>
-                      <option value="2">China</option>
-                      <option value="3">Arab</option>
+                    <select class="custom-select" v-model="dataForBook.destination " >
+                      <option :value="city.city_name" v-for="city in getDataCity"  :key="city.city_name">{{city.city_name}}</option>
                     </select>
                   </div>
                 </div>
                 <div class="row teksCountry mt-1">
-                  <div class="col ">Indonesia</div>
+                  <div class="col ">{{getDataCity.country_name}}</div>
                   <div class="col text-right">Japan</div>
                 </div>
               </div>
@@ -92,7 +87,7 @@
             <div class="row mt-3  d-flex justify-content-between">
               <div class="col btnTeks">
                 <button
-                  type="submit"
+                  type="button"
                   class="btn btn-primary btn-sm px-3 rounded-lg py-2"
                 >
                   <img
@@ -103,7 +98,7 @@
               </div>
               <div class="col pl-0 pl-lg text-right">
                 <button
-                  type="submit"
+                  type="button"
                   class="btn btn-sm btnTeks2  px-3 rounded-lg py-2"
                 >
                   <img src="..\..\src\assets\home\btn\Vector (4).png" /> Round Trip
@@ -614,6 +609,7 @@
 
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   components: {
@@ -628,14 +624,33 @@ export default {
         date: '',
         childPerson: '',
         adultPerson: '',
-        classFlight: ''
+        classFlight: 0
       }
     }
   },
   methods: {
     book () {
-      console.log(this.dataForBook)
-    }
+      // console.log(this.dataForBook)
+      parseInt(this.dataForBook.classFlight)
+      this.getFlight(this.dataForBook)
+        .then((response) => {
+          setTimeout(() => {
+            this.$router.push({ path: '/search', query: { origin: this.dataForBook.origin, destination: this.dataForBook.destination, date: this.dataForBook.date, passenger: (this.dataForBook.childPerson + this.dataForBook.adultPerson), class: this.dataForBook.classFlight } })
+          }, 2000)
+        })
+    },
+    ...mapActions({
+      getCity: 'city/getDataCity',
+      getFlight: 'flight/getDataFlight'
+    })
+  },
+  computed: {
+    ...mapGetters({
+      getDataCity: 'city/getallCity'
+    })
+  },
+  mounted () {
+    this.getCity()
   }
 }
 </script>

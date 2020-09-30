@@ -5,23 +5,17 @@
       <div class="row">
         <div class="col-12 col-sm-4 d-none d-sm-block">
           <div class="row user-card">
-            <div class="col-12 d-flex justify-content-center">
+            <div class="col-12 d-flex justify-content-center mb-2">
               <div class="profile-image rounded-circle">
                 <img
-                  src="http://54.160.81.6:3001/404P.png"
+                  :src="`${url}/${getdetaildata.image}`"
                   class="rounded-circle"
                 />
               </div>
             </div>
-            <div class="input-pp d-flex justify-content-center">
-              <div class="fileUpload btn btn-outline-primary rounded-20">
-                <span>Select File</span>
-                <input class="upload" type="file" />
-              </div>
-            </div>
             <div class="name-profile">
-              <h4 class="text-center">Full Name</h4>
-              <p class="text-center">Medan, Indonesia</p>
+              <h4 class="text-center">{{getdetaildata.fullname}}</h4>
+              <p class="text-center">{{getdetaildata.address}}</p>
             </div>
             <div class="d-flex flex-row justify-content-center">
               <p>Card</p>
@@ -195,7 +189,7 @@
                   </div>
                 </div>
                 <b-navbar-toggle
-                  target="navbar-toggle-collapse2"
+                  target="navbar-toggle-collapse3"
                   class="d-none d-sm-block"
                 >
                   <template
@@ -209,7 +203,7 @@
                     </p>
                   </template>
                 </b-navbar-toggle>
-                <b-collapse id="navbar-toggle-collapse2" is-nav>
+                <b-collapse id="navbar-toggle-collapse3" is-nav>
                   <b-navbar-nav class="mr-auto">
                     <p style="color: #2395ff" class="mt-3">
                       Lorem ipsum dolor sit amet consectetur, adipisicing elit.
@@ -230,18 +224,44 @@
 <script>
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import { mapActions, mapGetters } from 'vuex'
+const { url } = require('../helper/env')
+
 export default {
   components: {
     Navbar,
     Footer
+  },
+  data () {
+    return {
+      url: url
+    }
   },
   methods: {
     logout () {
       localStorage.removeItem('token')
       localStorage.removeItem('refreshToken')
       localStorage.removeItem('id')
-      window.location = '/'
-    }
+      this.router.push({ path: '/' })
+    },
+    ...mapActions({
+      getUser: 'user/getUserDetail'
+    })
+  },
+  mounted () {
+    this.getUser()
+      .then((response) => {
+        // this.setProduct(this.allproducts.products)
+        // console.log(response)
+        // this.dataUser = this.getdetaildata
+        console.log(this.dataUser)
+      })
+    this.getCity()
+  },
+  computed: {
+    ...mapGetters({
+      getdetaildata: 'user/getallData'
+    })
   }
 }
 </script>
@@ -277,11 +297,14 @@ export default {
 }
 .profile-image {
   width: 137px;
+  height: 137px;
   border: 3px #2395ff solid;
   padding: 5px;
+  position: relative;
 }
 .profile-image img {
   width: 100%;
+  height: 100%;
 }
 .fileUpload {
   position: relative;

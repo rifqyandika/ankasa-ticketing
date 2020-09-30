@@ -21,11 +21,13 @@ const getters = {
 
 const actions = {
   getDataFlight (context, payload) {
+    console.log(payload)
     return new Promise((resolve, reject) => {
-      axios.get(`${url}/flight/getAll`)
+      axios.get(`${url}/flight/getflight?origin=${payload.origin}&destination=${payload.destination}&date=${payload.date}&class_flight=${payload.classFlight}`)
         .then((response) => {
           context.commit('SET_FLIGHT', response.data.data)
-        //   console.log(response.data.data)
+          console.log(response.data.data)
+          resolve(response.data.message)
         })
         .catch((err) => {
           console.log(err)
