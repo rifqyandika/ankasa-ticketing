@@ -7,10 +7,9 @@
           <div class="row user-card">
             <div class="col-12 d-flex justify-content-center">
               <div class="profile-image rounded-circle">
-                <img src="../assets/img/anonymous.jpg" class="rounded-circle" />
+                <img :src="`${url}/${dataUser.image}`" class="rounded-circle" />
                 <b-button
-                  v-b-modal="'my-modal'"
-                  class="pen rounded-circle"
+                  class="pen rounded-circle d-flex d-sm-none"
                   style="border: none"
                   @click="showModal"
                 >
@@ -22,12 +21,12 @@
             <div class="input-pp d-flex justify-content-center">
               <div class="fileUpload btn btn-outline-primary rounded-20">
                 <span>Select File</span>
-                <input class="upload" type="file" />
+                <input class="upload" type="file" @change="processFile($event)"/>
               </div>
             </div>
             <div class="name-profile">
-              <h4 class="text-center">Full Name</h4>
-              <p class="text-center">Medan, Indonesia</p>
+              <h4 class="text-center">{{dataUser.fullname}}</h4>
+              <p class="text-center">{{!dataUser.address? '-' : dataUser.address}}</p>
             </div>
             <div class="d-flex flex-row justify-content-center">
               <p>Card</p>
@@ -82,11 +81,11 @@
               <div class="col-12">
                 <div>
                   <p class="label">Email</p>
-                  <input type="email" />
+                  <input type="email" v-model="dataUser.email" :disabled="disable"/>
                 </div>
                 <div>
                   <p class="label">Phone Number</p>
-                  <input type="text" />
+                  <input type="text" v-model="dataUser.phone" :disabled="disable"/>
                 </div>
                 <a class="d-flex justify-content-end"> Account Setting > </a>
               </div>
@@ -96,27 +95,30 @@
               <div class="col-12 formm">
                 <div>
                   <p class="label">User Name</p>
-                  <input type="email" />
+                  <input type="email" v-model="dataUser.username" :disabled="disable"/>
                 </div>
                 <div>
                   <p class="label">City</p>
-                  <Select>
+                  <Select :disabled="disable">
                     <option value="">Medan</option>
                     <option value="">Bukan Medan</option>
                   </Select>
                 </div>
                 <div>
                   <p class="label">Address</p>
-                  <input type="email" />
+                  <input type="text" v-model="dataUser.address" :disabled="disable" />
                 </div>
                 <div>
                   <p class="label">Post Code</p>
-                  <input type="text" />
+                  <input v-model="dataUser.post_code" type="text" :disabled="disable"/>
                 </div>
               </div>
             </div>
-            <div class="col-12 d-flex justify-content-end">
-              <button class="btn btn-primary btnsave mr-3">Save</button>
+            <div class="col-12 d-flex justify-content-end" v-if="disable">
+              <button class="btn btn-primary btnsave mr-3" @click="disable = false">Edit</button>
+            </div>
+            <div class="col-12 d-flex justify-content-end" v-else>
+              <button class="btn btn-primary btnsave mr-3" @click="sendData">Save</button>
             </div>
           </div>
         </div>
@@ -141,7 +143,7 @@
                 </div>
                 <div>
                   <p class="label">Phone Number</p>
-                  <input type="text" />
+                  <input type="number" />
                 </div>
                 <a class="d-flex justify-content-end"> Account Setting > </a>
               </div>
@@ -186,7 +188,19 @@
 <script>
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import { mapActions, mapGetters } from 'vuex'
+const { url } = require('../helper/env')
+
 export default {
+  data () {
+    return {
+      dataUser: {},
+      x: false,
+      url: url,
+      disable: true,
+      image: null
+    }
+  },
   components: {
     Navbar,
     Footer
@@ -204,12 +218,40 @@ export default {
     },
     hideModal () {
       this.x = false
+    },
+    processFile (event) {
+      this.image = event.target.files[0]
+      this.sendData()
+    },
+    ...mapActions({
+      getUser: 'user/getUserDetail',
+      onUpdateData: 'user/updateData'
+    }),
+    sendData () {
+      this.dataUser.newImage = this.image
+      this.onUpdateData(this.dataUser).then((response) => {
+        alert(response)
+        this.getUser()
+          .then((response) => {
+            this.dataUser = this.getdetaildata
+            console.log(this.dataUser)
+          })
+      })
     }
   },
-  data () {
-    return {
-      x: false
-    }
+  mounted () {
+    this.getUser()
+      .then((response) => {
+        // this.setProduct(this.allproducts.products)
+        // console.log(response)
+        this.dataUser = this.getdetaildata
+        console.log(this.dataUser)
+      })
+  },
+  computed: {
+    ...mapGetters({
+      getdetaildata: 'user/getallData'
+    })
   }
 }
 </script>
@@ -236,12 +278,14 @@ export default {
 }
 .profile-image {
   width: 137px;
+  height: 137px;
   border: 3px #2395ff solid;
   padding: 5px;
   position: relative;
 }
 .profile-image img {
   width: 100%;
+  height: 100%;
 }
 .fileUpload {
   position: relative;

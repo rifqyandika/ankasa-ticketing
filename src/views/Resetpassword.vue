@@ -53,7 +53,7 @@ export default {
       form: {
         password: '',
         confirmpwd: '',
-        key: ''
+        key: this.$route.query.key
       },
       errorcheck: ''
     }
@@ -64,7 +64,7 @@ export default {
         this.errorres = 'Please Check your Password'
         this.errAlert()
       } else {
-        this.actionRegist(this.form)
+        this.actionReset(this.form)
           .then((response) => {
             if (response.code === 402) {
               this.errorres = response.message
@@ -94,7 +94,7 @@ export default {
       }
     },
     ...mapActions({
-      // actionRegist: 'auth/register'
+      actionReset: 'auth/resetPassword'
     })
   },
   mixins: [functions]
