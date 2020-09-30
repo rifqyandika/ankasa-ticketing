@@ -26,7 +26,7 @@
     </div>
     <!-- teksHeader -->
     <div class="container  ">
-      <div class="row bg-warning">
+      <div class="row">
         <div class="mt-2 mt-sm-3 mt-lg-n4  ml-md-4 ml-lg-0 col-12 col-lg-6 col-xl-5 pl-lg-0 ">
           <p class="textHeader ml-xl-n4">
             Find your <span class="textHeader2 pb-4">Flight</span>
