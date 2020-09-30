@@ -18,17 +18,17 @@
               <p>to</p>
             </div>
             <div class="col-12 justify-content-between d-flex flex-row">
-              <p>{{origin}}</p>
+              <p>{{origin}} (Undetected)</p>
               <img
                 src="../assets/icons/switch-white.svg"
                 style="width: 17px; height: 17px"
               />
-              <p>{{destination}}</p>
+              <p>{{destination}} (Can't Get)</p>
             </div>
             <div class="col-12 justify-content-between d-flex flex-row lato">
-              <p>{{date}}</p>
-              <p>{{passenger}}passenger</p>
-              <p>{{ classFlight }}</p>
+              <p>Monday, 20 July 20</p>
+              <p>6 passenger</p>
+              <p>Economy</p>
             </div>
           </div>
         </div>
@@ -480,10 +480,7 @@ export default {
       url: url,
       dataflight: [],
       origin: this.$route.query.origin,
-      destination: this.$route.query.destination,
-      date: this.$route.query.destination,
-      passenger: this.$route.query.destination,
-      classFlight: this.dataForBook.classFlight
+      destination: this.$route.query.destination
     }
   },
   methods: {
@@ -497,7 +494,7 @@ export default {
     })
   },
   mounted () {
-    this.getFlight()
+    // this.getFlight()
     //     .then((response) => {
     //       // this.setProduct(this.allproducts.products)
     //       // console.log(response)

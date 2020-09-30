@@ -635,7 +635,7 @@ export default {
       this.getFlight(this.dataForBook)
         .then((response) => {
           setTimeout(() => {
-            this.$router.push({ path: '/search', query: { origin: this.dataForBook.origin, destination: this.dataForBook.destination, date: this.dataForBook.date, passenger: (this.dataForBook.childPerson + this.dataForBook.adultPerson), class: this.dataForBook.classFlight } })
+            this.$router.push({ path: '/search', query: { origin: this.dataForBook.origin, destination: this.dataForBook.destination } })
           }, 2000)
         })
     },
