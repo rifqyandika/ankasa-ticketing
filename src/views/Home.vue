@@ -1,6 +1,6 @@
 <template>
   <div
-    class="container-fluid bg-warning pl-0 pr-0"
+    class="container-fluid pl-0 pr-0"
     style="overflow: hidden !important;
     overflow-x: hidden !important;"
   >
