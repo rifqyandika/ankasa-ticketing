@@ -26,14 +26,14 @@
     </div>
     <!-- teksHeader -->
     <div class="container  ">
-      <div class="row ">
+      <div class="row bg-warning">
         <div class="mt-2 mt-sm-3 mt-lg-n4  ml-md-4 ml-lg-0 col-12 col-lg-6 col-xl-5 pl-lg-0 ">
           <p class="textHeader ml-xl-n4">
             Find your <span class="textHeader2 pb-4">Flight</span>
           </p>
           <p class="mt-n3 mt-lg-n4 ml-xl-n4 smallTextHeader">and explore the world with us</p>
         </div>
-        <div class="mx-lg-1 col-12 col-sm-10 col-lg-5 col-xl-4 boxBuy mx-auto ">
+        <div class="mx-lg-1 col-12 col-sm-10 col-lg-5 col-xl-4 boxBuy ml-xl-5 mx-auto ">
           <div class="mx-3 my-1">
             <div class="row">
               <div class="col mt-3">
@@ -700,8 +700,8 @@ input[name="r"] {
   border-radius: 60px 0px 0px 60px;
 }
 .pictHeader3 {
-  top: 500px;
-  right: 240px;
+  top: 480px;
+  right: 210px;
 }
 
 /* teksBody */

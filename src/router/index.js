@@ -9,6 +9,8 @@ import Profile from '../views/Userprofile.vue'
 import Booking from '../views/Mybooking.vue'
 import Reset from '../views/Resetpassword.vue'
 import Notifications from '../views/Notifications.vue'
+import AdminLogin from '../views/Admin/Login.vue'
+import AdminHome from '../views/Admin/Home.vue'
 
 Vue.use(VueRouter)
 
@@ -60,6 +62,18 @@ const routes = [
     name: 'notifications',
     component: Notifications,
     meta: { requiresAuth: true }
+  },
+  {
+    path: '/admin',
+    name: 'admin',
+    component: AdminLogin
+    // meta: { requiresAuth: true }
+  },
+  {
+    path: '/admin/home',
+    name: 'admin',
+    component: AdminHome
+    // meta: { requiresAuth: true }
   }
 
 ]
