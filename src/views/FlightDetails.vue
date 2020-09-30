@@ -1,9 +1,10 @@
 <template>
   <div
-    class="container-fluid"
-    style="
+  class="container-fluid pl-0 pr-0"
+    style="overflow: hidden !important;
+    overflow-x: hidden !important;
 background: #F5F6FA;"
-  >
+  ><Navbar/>
     <div class="row">
       <img
         class="img-fluid"
@@ -250,9 +251,22 @@ background: #F5F6FA;"
         </div>
       </div>
     </div>
+    <Footer/>
   </div>
 </template>
 
+<script>
+
+import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
+
+export default {
+  components: {
+    Navbar,
+    Footer
+  }
+}
+</script>
 <style>
 .proceed button {
   font-family: Poppins;
