@@ -9,6 +9,7 @@ import Profile from '../views/Userprofile.vue'
 import Booking from '../views/Mybooking.vue'
 import Reset from '../views/Resetpassword.vue'
 import Notifications from '../views/Notifications.vue'
+import FlightDetails from '../views/FlightDetails.vue'
 import AdminLogin from '../views/Admin/Login.vue'
 import AdminHome from '../views/Admin/Home.vue'
 
@@ -55,6 +56,12 @@ const routes = [
     path: '/booking',
     name: 'Booking',
     component: Booking,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/flightdetails',
+    name: 'FlightDetails',
+    component: FlightDetails,
     meta: { requiresAuth: true }
   },
   {
