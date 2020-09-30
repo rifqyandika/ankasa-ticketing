@@ -6,7 +6,7 @@
           <img src="../assets/icons/illustration.png" />
         </div>
         <div class="col-sm-4 col-xs-12 form">
-          <div class="title">
+          <div class="title"  @click="toHome">
             <img src="../assets/icons/ankasa-smallicon.png" />
             <h2>Ankasa</h2>
           </div>
@@ -83,7 +83,10 @@ export default {
     },
     ...mapActions({
       actionRegist: 'auth/register'
-    })
+    }),
+    toHome () {
+      window.location = '/'
+    }
   },
   mixins: [functions]
 }

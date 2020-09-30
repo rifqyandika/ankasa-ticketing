@@ -34,6 +34,7 @@
           <p class="mt-n3 mt-lg-n4 ml-xl-n4 smallTextHeader">and explore the world with us</p>
         </div>
         <div class="mx-lg-1 col-12 col-sm-10 col-lg-5 col-xl-4 boxBuy mx-auto ">
+          <form action="" @submit.prevent="book">
           <div class="mx-3 my-1">
             <div class="row">
               <div class="col mt-3">
@@ -55,21 +56,34 @@
               </div>
             </div>
             <div class="row mt-3 ">
-              <div class="container boxOrder mx-3 py-3">
+              <div class="container boxOrder mx-3 py-3 mb-1">
                 <div class="row from">
                   <div class="col ">From</div>
                   <div class="col  text-right">To</div>
                 </div>
                 <div class="row routeTeks">
-                  <div class="col ">Medan</div>
-                  <div class="col  text-center">
-                    <a href="#"
-                      ><img src="..\..\src\assets\home\btn\Vector (2).png"
-                    /></a>
+                  <div class="col">
+                    <select class="custom-select" v-model="dataForBook.origin">
+                      <option selected >Choose...</option>
+                      <option value="1">Indonesia</option>
+                      <option value="2">Arab</option>
+                      <option value="3">China</option>
+                    </select>
                   </div>
-                  <div class="col text-right">Japan</div>
+                  <div class="col-100  text-center">
+                    <div href="#"
+                      ><img src="..\..\src\assets\home\btn\Vector (2).png"
+                    /></div>
+                  </div>
+                  <div class="col">
+                    <select class="custom-select" v-model="dataForBook.destination">
+                      <option value="1">Indonesia</option>
+                      <option value="2">China</option>
+                      <option value="3">Arab</option>
+                    </select>
+                  </div>
                 </div>
-                <div class="row teksCountry">
+                <div class="row teksCountry mt-1">
                   <div class="col ">Indonesia</div>
                   <div class="col text-right">Japan</div>
                 </div>
@@ -92,7 +106,7 @@
                   type="submit"
                   class="btn btn-sm btnTeks2  px-3 rounded-lg py-2"
                 >
-                  <img src="..\..\src\assets\home\btn\Vector (4).png" /> One way
+                  <img src="..\..\src\assets\home\btn\Vector (4).png" /> Round Trip
                 </button>
               </div>
             </div>
@@ -100,12 +114,12 @@
               <div class="col-12 teksMenu ">Departure</div>
             </div>
             <div class="row mt-1 ">
-              <div class="container choseDeparture mx-3 py-3">
-                <div class="row mx-1 tekChoseDeparture">
-                  Monday, 20 July 2020
-                  <a href="#" class="ml-auto"
-                    ><img src="..\..\src\assets\home\btn\iconright.png"
-                  /></a>
+              <div class="container choseDeparture mx-3">
+                <div class="row mx-1 tekChoseDeparture d-flex flex-row align-items-center py-3 ">
+                    <label for="example-date-input" class="col">Date</label>
+                    <div class="col p-0 ">
+                      <input class="form-control mr-auto" type="date" v-model="dataForBook.date" id="example-date-input">
+                    </div>
                 </div>
               </div>
             </div>
@@ -113,21 +127,9 @@
               <div class="col-12 teksMenu ">How many person?</div>
             </div>
             <div class="row mt-1 mb-4">
-              <div class="col choseDeparture mx-3 py-3">
-                <div class="row mx-1 tekChoseDeparture">
-                  2 Child
-                  <a href="#" class="ml-auto"
-                    ><img src="..\..\src\assets\home\btn\iconright.png"
-                  /></a>
-                </div>
-              </div>
-              <div class="col choseDeparture mx-3 py-3">
-                <div class="row mx-1 tekChoseDeparture">
-                  4 Adult
-                  <a href="#" class="ml-auto"
-                    ><img src="..\..\src\assets\home\btn\iconright.png"
-                  /></a>
-                </div>
+              <div class="col choseDeparture mx-3 py-3 d-flex">
+                  <input class="form-control" type="number" placeholder="Child" v-model="dataForBook.childPerson" style="width: 50%; margin-right: 10px">
+                  <input class="form-control" type="number" placeholder="Adult" v-model="dataForBook.adultPerson" style="width: 50%">
               </div>
             </div>
             <div class="row mt-3">
@@ -141,7 +143,8 @@
                     type="radio"
                     name="inlineRadioOptions"
                     id="inlineRadio1"
-                    value="option1"
+                    v-model="dataForBook.classFlight"
+                    value="0"
                   />
                   <label class="form-check-label" for="inlineRadio1"
                     >Economy</label
@@ -155,7 +158,8 @@
                     type="radio"
                     name="inlineRadioOptions"
                     id="inlineRadio2"
-                    value="option2"
+                    v-model="dataForBook.classFlight"
+                    value="1"
                   />
                   <label class="form-check-label" for="inlineRadio2"
                     >Business</label
@@ -169,7 +173,8 @@
                     type="radio"
                     name="inlineRadioOptions"
                     id="inlineRadio3"
-                    value="option3"
+                    v-model="dataForBook.classFlight"
+                    value="2"
                   />
                   <label class="form-check-label" for="inlineRadio3"
                     >First Class</label
@@ -180,7 +185,7 @@
             <div class="row mt-4 mb-4">
               <div class="col">
                 <button
-                  type="button"
+                  type="Submit"
                   class="teksSubmit btn btn-primary btn-lg btn-block"
                 >
                   SEARCH FLIGHT
@@ -192,6 +197,7 @@
               </div>
             </div>
           </div>
+          </form>
         </div>
       </div>
     </div>
@@ -603,6 +609,36 @@
     <Footer />
   </div>
 </template>
+
+<script>
+
+import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
+
+export default {
+  components: {
+    Navbar,
+    Footer
+  },
+  data () {
+    return {
+      dataForBook: {
+        origin: '',
+        destination: '',
+        date: '',
+        childPerson: '',
+        adultPerson: '',
+        classFlight: ''
+      }
+    }
+  },
+  methods: {
+    book () {
+      console.log(this.dataForBook)
+    }
+  }
+}
+</script>
 
 <style>
 /* Destination */
@@ -1124,16 +1160,3 @@ input[name="r"] {
 
 }
 </style>
-
-<script>
-
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
-
-export default {
-  components: {
-    Navbar,
-    Footer
-  }
-}
-</script>

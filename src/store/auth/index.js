@@ -61,15 +61,15 @@ const actions = {
   },
   resetPassword (context, payload) {
     console.log(payload)
-    // return new Promise((resolve, reject) => {
-    //   axios.post(`${url}/user/register`, payload)
-    //     .then((response) => {
-    //       resolve(response.data)
-    //     })
-    //     .catch((err) => {
-    //       reject(err)
-    //     })
-    // })
+    return new Promise((resolve, reject) => {
+      axios.post(`${url}/user/reset-confirm`, payload)
+        .then((response) => {
+          resolve(response.data)
+        })
+        .catch((err) => {
+          reject(err)
+        })
+    })
   }
 }
 

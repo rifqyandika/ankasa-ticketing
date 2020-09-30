@@ -6,7 +6,7 @@
           <img src="../assets/icons/illustration.png" />
         </div>
         <div class="col-sm-4 col-xs-12 form">
-          <div class="title">
+          <div class="title"  @click="toHome">
             <img src="../assets/icons/ankasa-smallicon.png" />
             <h2>Ankasa</h2>
           </div>
@@ -14,21 +14,12 @@
             <div class="col-sm-10 align-middle">
               <h1>Reset Password</h1>
               <form @submit.prevent="onResetpassword">
-
               <input type="password" class="form-control" placeholder="Password" @keyup="checkpassword" v-model="form.password" required/>
               <input type="password" v-model="form.confirmpwd" class="form-control" @keyup="checkpassword" placeholder="Confirm Password" required/>
               <p ref="checkerror" style="color: red; display: block;">{{errorcheck}}</p>
               <button type="submit" class="btn btn-primary">Reset Password</button>
-              <div class="checkboks">
-                <input id="term" type="checkbox" required/>
-                <label for="term">Accept term and Conditions</label>
-              </div>
               </form>
               <hr />
-              <p>Already have account?</p>
-              <router-link to="/login" type="button" class="btn btn-outline-primary">
-                Reset Password
-              </router-link>
             </div>
           </div>
         </div>
@@ -95,7 +86,10 @@ export default {
     },
     ...mapActions({
       actionReset: 'auth/resetPassword'
-    })
+    }),
+    toHome () {
+      window.location = '/'
+    }
   },
   mixins: [functions]
 }

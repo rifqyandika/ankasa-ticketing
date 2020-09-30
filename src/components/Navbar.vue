@@ -33,7 +33,7 @@
           <!-- Using 'button-content' slot -->
           <template v-slot:button-content>
             <div class="borderprofile rounded-circle">
-                <img class="rounded-circle" :src="`${url}/${dataUser.image}`" alt="">
+                <img class="rounded-circle" :src="`${url}/${getdetaildata.image}`" alt="">
             </div>
           </template>
           <b-dropdown-item to="/profile">Profile</b-dropdown-item>
@@ -82,12 +82,6 @@ export default {
       this.logged = true
     }
     this.getUser()
-      .then((response) => {
-        // this.setProduct(this.allproducts.products)
-        // console.log(response)
-        this.dataUser = this.getdetaildata
-        // console.log(this.dataUser)
-      })
   },
   computed: {
     ...mapGetters({
@@ -196,7 +190,7 @@ export default {
     display: none;
 }
 #nav-collapse{
-    background-color: #00B7DF;
+    background-color: #2395FF;
     padding: 30px ;
     border-radius: 0px 0px 10px 10px;
 }

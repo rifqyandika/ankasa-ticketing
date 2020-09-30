@@ -6,15 +6,15 @@
           <img src="../assets/icons/illustration.png" />
         </div>
         <div class="col-sm-4 col-xs-12 form">
-          <div class="title">
+          <div class="title" @click="toHome">
             <img src="../assets/icons/ankasa-smallicon.png" />
             <h2>Ankasa</h2>
           </div>
-          <div class="form-group row rowform" v-if="forgotpassword">
+          <div class="form-group row rowform"  v-if="forgotpassword">
             <div class="col-sm-10 align-middle">
               <h1>Forgot Password</h1>
-              <input type="email" class="form-control" placeholder="Email" />
-              <button type="button" class="btn btn-primary">Send</button>
+              <input type="email" class="form-control" v-model="emailtoReset" placeholder="Email" />
+              <button type=submit class="btn btn-primary" @click="sendEmail">Send</button>
               <p>You'll get message soon on your email</p>
             </div>
           </div>
@@ -70,6 +70,8 @@
 <script>
 import { mapActions } from 'vuex'
 import functions from '../mixins/functions'
+import axios from 'axios'
+const { url } = require('../helper/env')
 
 export default {
   data () {
@@ -78,7 +80,8 @@ export default {
       form: {
         email: '',
         password: ''
-      }
+      },
+      emailtoReset: ''
     }
   },
   methods: {
@@ -101,9 +104,25 @@ export default {
           alert(err)
         })
     },
+    sendEmail () {
+      console.log(this.emailtoReset)
+      return new Promise((resolve, reject) => {
+        axios.post(`${url}/user/reset-pass`, this.emailtoReset)
+          .then((response) => {
+            console.log(response.data)
+            // alert(response.data)
+          })
+          .catch((err) => {
+            alert(err)
+          })
+      })
+    },
     ...mapActions({
       actionLogin: 'auth/login'
-    })
+    }),
+    toHome () {
+      window.location = '/'
+    }
   },
   mixins: [functions]
 }

@@ -94,14 +94,13 @@
               <div class="col-12 m-10 bio-con">Biodata</div>
               <div class="col-12 formm">
                 <div>
-                  <p class="label">User Name</p>
-                  <input type="email" v-model="dataUser.username" :disabled="disable"/>
+                  <p class="label">Full Name</p>
+                  <input type="email" v-model="dataUser.fullname" :disabled="disable"/>
                 </div>
                 <div>
                   <p class="label">City</p>
-                  <Select :disabled="disable">
-                    <option value="">Medan</option>
-                    <option value="">Bukan Medan</option>
+                  <Select :disabled="disable" v-model="dataUser.id_city">
+                    <option :value="city.id" v-for="city in getDataCity"  :key="city.id">{{city.name}}</option>
                   </Select>
                 </div>
                 <div>
@@ -139,11 +138,11 @@
               <div class="col-12">
                 <div>
                   <p class="label">Email</p>
-                  <input type="email" />
+                  <input type="email" v-model="dataUser.email"/>
                 </div>
                 <div>
                   <p class="label">Phone Number</p>
-                  <input type="number" />
+                  <input type="number" v-model="dataUser.phone"/>
                 </div>
                 <a class="d-flex justify-content-end"> Account Setting > </a>
               </div>
@@ -152,23 +151,24 @@
               <div class="col-12 m-10 bio-con">Biodata</div>
               <div class="col-12 formm">
                 <div>
-                  <p class="label">User Name</p>
-                  <input type="email" />
+                  <p class="label">Full Name</p>
+                  <input type="email" v-model="dataUser.username"/>
                 </div>
                 <div>
                   <p class="label">City</p>
                   <Select>
-                    <option value="">Medan</option>
-                    <option value="">Bukan Medan</option>
+                    <option value="" v-for="city in getDataCity" :key="city.id">
+                      {{city.name}}
+                    </option>
                   </Select>
                 </div>
                 <div>
                   <p class="label">Address</p>
-                  <input type="email" />
+                  <input type="email" v-model="dataUser.address"/>
                 </div>
                 <div>
                   <p class="label">Post Code</p>
-                  <input type="text" />
+                  <input type="text" v-model="dataUser.post_code"/>
                 </div>
               </div>
             </div>
@@ -225,7 +225,8 @@ export default {
     },
     ...mapActions({
       getUser: 'user/getUserDetail',
-      onUpdateData: 'user/updateData'
+      onUpdateData: 'user/updateData',
+      getCity: 'city/getDataCity'
     }),
     sendData () {
       this.dataUser.newImage = this.image
@@ -247,10 +248,12 @@ export default {
         this.dataUser = this.getdetaildata
         console.log(this.dataUser)
       })
+    this.getCity()
   },
   computed: {
     ...mapGetters({
-      getdetaildata: 'user/getallData'
+      getdetaildata: 'user/getallData',
+      getDataCity: 'city/getallCity'
     })
   }
 }

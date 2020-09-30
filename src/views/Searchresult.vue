@@ -381,10 +381,10 @@
             <p>Salah ticket</p>
             <p>Sort by <img src="../assets/icons/siwtch-sort.png" /></p>
           </div>
-          <div class="col-12 card-ticket">
+          <div class="col-12 card-ticket" v-for="flight in dataFlight" :key="flight.id">
             <div class="col-12 d-flex flex-row">
-              <div class="col-3">Gambar logo pesawat</div>
-              <div class="col-9">Garuda Indonesia</div>
+              <div class="col-3"><img :src="`${url}/${flight.image_airlines}`" ></div>
+              <div class="col-9">{{flight.airlines}}</div>
             </div>
             <div class="col-12 d-flex flex-row">
               <div class="col-5 d-flex align-items-center">
@@ -395,25 +395,28 @@
                 </div>
                 <div class="col-6">
                   <div class="d-flex flex-column">
-                    <p class="m-0" style="font-size: 12px">3 Hours</p>
-                    <p class="m-0" style="font-size: 12px">( 1 Transit )</p>
+                    <p class="m-0" style="font-size: 12px">{{flight.flight_duration}}</p>
+                    <p class="m-0" style="font-size: 12px" v-if="flight.transit===0">( Direct )</p>
+                    <p class="m-0" style="font-size: 12px" v-else-if="flight.transit===1">( 1 Transit )</p>
+                    <p class="m-0" style="font-size: 12px" v-else-if="flight.transit===2">( Transit 2+ )</p>
+                    <p class="m-0" style="font-size: 12px" v-else>No COMMENT!!!!</p>
                   </div>
                 </div>
               </div>
               <div class="col-7 d-flex">
                 <div class="col d-flex">
                   <div v-if="luggage">
-                    <img src="../assets/icons/bag.svg" class="mr-1" />
+                    <img src="../assets/icons/bag.svg" class="mr-1" v-if="flight.luggage===1"/>
                   </div>
                   <div v-if="meals" class="mr-1">
-                    <img src="../assets/icons/meals.svg" />
+                    <img src="../assets/icons/meals.svg" v-if="flight.meal===1"/>
                   </div>
                   <div v-if="wifi">
-                    <img src="../assets/icons/wifi.svg" />
+                    <img src="../assets/icons/wifi.svg" v-if="flight.wifi===1"/>
                   </div>
                 </div>
                 <div class="col d-flex">
-                  <div>$ 214,00 /pax</div>
+                  <div>{{flight.price}}</div>
                 </div>
                 <div class="col d-flex">
                   <button class="btn btn-primary btnselect ml-auto">
@@ -461,6 +464,8 @@
 <script>
 import Navbar from '@/components/Navbar.vue'
 import Footer from '@/components/Footer.vue'
+import { mapActions, mapGetters } from 'vuex'
+const { url } = require('../helper/env')
 
 export default {
   components: {
@@ -471,8 +476,28 @@ export default {
     return {
       luggage: true,
       meals: true,
-      wifi: true
+      wifi: true,
+      url: url
     }
+  },
+  methods: {
+    ...mapActions({
+      getFlight: 'flight/getDataFlight'
+    })
+  },
+  computed: {
+    ...mapGetters({
+      dataFlight: 'flight/getallFlight'
+    })
+  },
+  mounted () {
+    this.getFlight()
+    //     .then((response) => {
+    //       // this.setProduct(this.allproducts.products)
+    //       // console.log(response)
+    //       // console.log(this.dataUser)
+    //     })
+    console.log(this.dataFlight)
   }
 }
 </script>
@@ -521,6 +546,7 @@ export default {
   background-color: white;
   border-radius: 15px;
   padding: 20px;
+  margin-bottom: 20px;
 }
 .card-filter {
   background-color: white;
@@ -532,6 +558,7 @@ export default {
   box-shadow: 0px 8px 10px rgba(35, 149, 255, 0.3);
   border-radius: 10px;
   width: 150px;
+  max-height: 45px;
 }
 @media (max-width: 540px) {
   .top {
