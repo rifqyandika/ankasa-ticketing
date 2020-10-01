@@ -27,171 +27,211 @@
     <!-- teksHeader -->
     <div class="container  ">
       <div class="row">
-        <div class="mt-2 mt-sm-3 mt-lg-n4  ml-md-4 ml-lg-0 col-12 col-lg-6 col-xl-5 pl-lg-0 ">
+        <div
+          class="mt-2 mt-sm-3 mt-lg-n4  ml-md-4 ml-lg-0 col-12 col-lg-6 col-xl-5 pl-lg-0 "
+        >
           <p class="textHeader ml-xl-n4">
             Find your <span class="textHeader2 pb-4">Flight</span>
           </p>
-          <p class="mt-n3 mt-lg-n4 ml-xl-n4 smallTextHeader">and explore the world with us</p>
+          <p class="mt-n3 mt-lg-n4 ml-xl-n4 smallTextHeader">
+            and explore the world with us
+          </p>
         </div>
         <div class="mx-lg-1 col-12 col-sm-10 col-lg-5 col-xl-4 boxBuy mx-auto ">
           <form action="" @submit.prevent="book">
-          <div class="mx-3 my-1">
-            <div class="row">
-              <div class="col mt-3">
-                <p class="hey">Hey,</p>
-                <p class="where">
-                  Where you want to go?
-                </p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <a href="#" class=" text-decoration-none recentLy">
-                  <span>
-                    Recently Searched<img
-                      class="my-1 ml-5"
-                      src="..\..\src\assets\home\btn\btnback.png"
-                  /></span>
-                </a>
-              </div>
-            </div>
-            <div class="row mt-3 ">
-              <div class="container boxOrder mx-3 py-3 mb-1">
-                <div class="row from">
-                  <div class="col ">From</div>
-                  <div class="col  text-right">To</div>
-                </div>
-                <div class="row routeTeks">
-                  <div class="col">
-                    <select class="custom-select" v-model="dataForBook.origin">
-                      <option :value="city.city_name" v-for="city in getDataCity"  :key="city.id">{{city.city_name}}</option>
-                    </select>
-                  </div>
-                  <div class="col-100  text-center">
-                    <div href="#"
-                      ><img src="..\..\src\assets\home\btn\Vector (2).png"
-                    /></div>
-                  </div>
-                  <div class="col">
-                    <select class="custom-select" v-model="dataForBook.destination " >
-                      <option :value="city.city_name" v-for="city in getDataCity"  :key="city.city_name">{{city.city_name}}</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="row teksCountry mt-1">
-                  <div class="col ">{{getDataCity.country_name}}</div>
-                  <div class="col text-right">Japan</div>
+            <div class="mx-3 my-1">
+              <div class="row">
+                <div class="col mt-3">
+                  <p class="hey">Hey,</p>
+                  <p class="where">
+                    Where you want to go?
+                  </p>
                 </div>
               </div>
-            </div>
-            <div class="row mt-3  d-flex justify-content-between">
-              <div class="col btnTeks">
-                <button
-                  type="button"
-                  class="btn btn-primary btn-sm px-3 rounded-lg py-2"
-                >
-                  <img
-                    class="mr-2"
-                    src="..\..\src\assets\home\btn\Vector (3).png"
-                  />One way
-                </button>
+              <div class="row">
+                <div class="col">
+                  <a href="#" class=" text-decoration-none recentLy">
+                    <span>
+                      Recently Searched<img
+                        class="my-1 ml-5"
+                        src="..\..\src\assets\home\btn\btnback.png"
+                    /></span>
+                  </a>
+                </div>
               </div>
-              <div class="col pl-0 pl-lg text-right">
-                <button
-                  type="button"
-                  class="btn btn-sm btnTeks2  px-3 rounded-lg py-2"
-                >
-                  <img src="..\..\src\assets\home\btn\Vector (4).png" /> Round Trip
-                </button>
+              <div class="row mt-3 ">
+                <div class="container boxOrder mx-3 py-3 mb-1">
+                  <div class="row from">
+                    <div class="col ">From</div>
+                    <div class="col  text-right">To</div>
+                  </div>
+                  <div class="row routeTeks">
+                    <div class="col">
+                      <select
+                        class="custom-select"
+                        v-model="dataForBook.origin"
+                      >
+                        <option
+                          :value="city.city_name"
+                          v-for="city in getDataCity"
+                          :key="city.id"
+                          >{{ city.city_name }}</option
+                        >
+                      </select>
+                    </div>
+                    <div class="col-100  text-center">
+                      <div href="#">
+                        <img src="..\..\src\assets\home\btn\Vector (2).png" />
+                      </div>
+                    </div>
+                    <div class="col">
+                      <select
+                        class="custom-select"
+                        v-model="dataForBook.destination"
+                      >
+                        <option
+                          :value="city.city_name"
+                          v-for="city in getDataCity"
+                          :key="city.city_name"
+                          >{{ city.city_name }}</option
+                        >
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row teksCountry mt-1">
+                    <div class="col ">{{ getDataCity.country_name }}</div>
+                    <div class="col text-right">Japan</div>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-12 teksMenu ">Departure</div>
-            </div>
-            <div class="row mt-1 ">
-              <div class="container choseDeparture mx-3">
-                <div class="row mx-1 tekChoseDeparture d-flex flex-row align-items-center py-3 ">
+              <div class="row mt-3  d-flex justify-content-between">
+                <div class="col btnTeks">
+                  <button
+                    type="button"
+                    class="btn btn-primary btn-sm px-3 rounded-lg py-2"
+                  >
+                    <img
+                      class="mr-2"
+                      src="..\..\src\assets\home\btn\Vector (3).png"
+                    />One way
+                  </button>
+                </div>
+                <div class="col pl-0 pl-lg text-right">
+                  <button
+                    type="button"
+                    class="btn btn-sm btnTeks2  px-3 rounded-lg py-2"
+                  >
+                    <img src="..\..\src\assets\home\btn\Vector (4).png" /> Round
+                    Trip
+                  </button>
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-12 teksMenu ">Departure</div>
+              </div>
+              <div class="row mt-1 ">
+                <div class="container choseDeparture mx-3">
+                  <div
+                    class="row mx-1 tekChoseDeparture d-flex flex-row align-items-center py-3 "
+                  >
                     <label for="example-date-input" class="col">Date</label>
                     <div class="col p-0 ">
-                      <input class="form-control mr-auto" type="date" v-model="dataForBook.date" id="example-date-input">
+                      <input
+                        class="form-control mr-auto"
+                        type="date"
+                        v-model="dataForBook.date"
+                        id="example-date-input"
+                      />
                     </div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-12 teksMenu ">How many person?</div>
-            </div>
-            <div class="row mt-1 mb-4">
-              <div class="col choseDeparture mx-3 py-3 d-flex">
-                  <input class="form-control" type="number" placeholder="Child" v-model="dataForBook.childPerson" style="width: 50%; margin-right: 10px">
-                  <input class="form-control" type="number" placeholder="Adult" v-model="dataForBook.adultPerson" style="width: 50%">
+              <div class="row mt-3">
+                <div class="col-12 teksMenu ">How many person?</div>
               </div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-12 teksMenu ">Which class do you want??</div>
-            </div>
-            <div class="row mt-2 justify-content-between  tekChoseDeparture">
-              <div class="col-3 col-lg-4 ">
-                <div class="form-check form-check-inline">
+              <div class="row mt-1 mb-4">
+                <div class="col choseDeparture mx-3 py-3 d-flex">
                   <input
-                    class="form-check-input"
-                    type="radio"
-                    name="inlineRadioOptions"
-                    id="inlineRadio1"
-                    v-model="dataForBook.classFlight"
-                    value="0"
+                    class="form-control"
+                    type="number"
+                    placeholder="Child"
+                    v-model="dataForBook.childPerson"
+                    style="width: 50%; margin-right: 10px"
                   />
-                  <label class="form-check-label" for="inlineRadio1"
-                    >Economy</label
-                  >
+                  <input
+                    class="form-control"
+                    type="number"
+                    placeholder="Adult"
+                    v-model="dataForBook.adultPerson"
+                    style="width: 50%"
+                  />
                 </div>
               </div>
-              <div class="col-3 col-lg-4 text-center">
-                <div class="  form-check form-check-inline">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="inlineRadioOptions"
-                    id="inlineRadio2"
-                    v-model="dataForBook.classFlight"
-                    value="1"
-                  />
-                  <label class="form-check-label" for="inlineRadio2"
-                    >Business</label
-                  >
+              <div class="row mt-3">
+                <div class="col-12 teksMenu ">Which class do you want??</div>
+              </div>
+              <div class="row mt-2 justify-content-between  tekChoseDeparture">
+                <div class="col-3 col-lg-4 ">
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="inlineRadioOptions"
+                      id="inlineRadio1"
+                      v-model="dataForBook.classFlight"
+                      value="0"
+                    />
+                    <label class="form-check-label" for="inlineRadio1"
+                      >Economy</label
+                    >
+                  </div>
+                </div>
+                <div class="col-3 col-lg-4 text-center">
+                  <div class="  form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="inlineRadioOptions"
+                      id="inlineRadio2"
+                      v-model="dataForBook.classFlight"
+                      value="1"
+                    />
+                    <label class="form-check-label" for="inlineRadio2"
+                      >Business</label
+                    >
+                  </div>
+                </div>
+                <div class="col-3 col-4 pl-0  pr-0">
+                  <div class=" form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="inlineRadioOptions"
+                      id="inlineRadio3"
+                      v-model="dataForBook.classFlight"
+                      value="2"
+                    />
+                    <label class="form-check-label" for="inlineRadio3"
+                      >First Class</label
+                    >
+                  </div>
                 </div>
               </div>
-              <div class="col-3 col-4 pl-0  pr-0">
-                <div class=" form-check form-check-inline">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="inlineRadioOptions"
-                    id="inlineRadio3"
-                    v-model="dataForBook.classFlight"
-                    value="2"
-                  />
-                  <label class="form-check-label" for="inlineRadio3"
-                    >First Class</label
+              <div class="row mt-4 mb-4">
+                <div class="col">
+                  <button
+                    type="Submit"
+                    class="teksSubmit btn btn-primary btn-lg btn-block"
                   >
+                    SEARCH FLIGHT
+                    <img
+                      class="ml-5"
+                      src="..\..\src\assets\home\btn\Vector (5).png"
+                    />
+                  </button>
                 </div>
               </div>
             </div>
-            <div class="row mt-4 mb-4">
-              <div class="col">
-                <button
-                  type="Submit"
-                  class="teksSubmit btn btn-primary btn-lg btn-block"
-                >
-                  SEARCH FLIGHT
-                  <img
-                    class="ml-5"
-                    src="..\..\src\assets\home\btn\Vector (5).png"
-                  />
-                </button>
-              </div>
-            </div>
-          </div>
           </form>
         </div>
       </div>
@@ -606,7 +646,6 @@
 </template>
 
 <script>
-
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { mapActions, mapGetters } from 'vuex'
@@ -632,13 +671,20 @@ export default {
     book () {
       // console.log(this.dataForBook)
       parseInt(this.dataForBook.classFlight)
-      this.getFlight(this.dataForBook)
-        .then((response) => {
-          const adultPerson = parseInt(this.dataForBook.adultPerson)
-          const childPerson = parseInt(this.dataForBook.childPerson)
-          const person = adultPerson + childPerson
-          this.$router.push({ path: '/search', query: { origin: this.dataForBook.origin, destination: this.dataForBook.destination, date: this.dataForBook.date, totalPerson: person } })
+      this.getFlight(this.dataForBook).then(response => {
+        const adultPerson = parseInt(this.dataForBook.adultPerson)
+        const childPerson = parseInt(this.dataForBook.childPerson)
+        const person = adultPerson + childPerson
+        this.$router.push({
+          path: '/search',
+          query: {
+            origin: this.dataForBook.origin,
+            destination: this.dataForBook.destination,
+            date: this.dataForBook.date,
+            totalPerson: person
+          }
         })
+      })
     },
     ...mapActions({
       getCity: 'city/getDataCity',
@@ -753,7 +799,7 @@ input[name="r"] {
 }
 .pictHeader3 {
   top: 480px;
-  right: 210px;
+  right: 220px;
 }
 
 /* teksBody */
@@ -795,6 +841,8 @@ input[name="r"] {
   padding-left: 10px !important;
   margin-right: 220px !important;
   margin-left: 50px !important;
+  margin-top:-13px !important;
+  left:30px;
 }
 .recentLy :hover {
   opacity: 0.5;
@@ -969,12 +1017,12 @@ input[name="r"] {
 
 @media screen and (max-width: 1098px) {
   .pictHeader3 {
-  top: 500px;
-  right: 0px !important;
+    top: 500px;
+    right: 0px !important;
     height: 240px !important;
   }
-  .pictHeader1{
-  top: 290px;
+  .pictHeader1 {
+    top: 290px;
   }
 }
 
@@ -1009,8 +1057,8 @@ input[name="r"] {
   .ovaler {
     overflow-x: auto;
   }
-  .ovaler::-webkit-scrollbar{
-    width:0;
+  .ovaler::-webkit-scrollbar {
+    width: 0;
   }
   .pictHeader3 {
     top: 600px;
@@ -1084,7 +1132,7 @@ input[name="r"] {
     border-radius: 10px;
     cursor: pointer;
     transition: 0.3s;
-    margin-bottom:40px;
+    margin-bottom: 40px;
   }
   .buttonDest img {
     height: 15px;
@@ -1173,6 +1221,5 @@ input[name="r"] {
     color: #979797;
     margin-left: 0px;
   }
-
 }
 </style>
