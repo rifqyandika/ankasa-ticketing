@@ -72,146 +72,80 @@
               Order History
             </div>
           </div>
-          <div class="row formprofile ticket">
-            <div class="col-12 mb-4 p-0 ticket-item" style="font-size: 14px">
-              Monday, 20 July'20 - 12:33
-            </div>
-            <div class="col-12 mb-1 ticket-item" style="font-size: 14px">
-              <div class="d-flex flex-row">
-                <h4>IDN</h4>
-                <div class="mr-3 ml-3">
-                  <img src="../assets/icons/miniplane.svg" />
-                </div>
-                <h4>JPN</h4>
+          <div class="col" v-for="booking in getAllBooking" :key="booking.id">
+            <div class="row formprofile ticket">
+              <div class="col-12 mb-4 p-0 ticket-item" style="font-size: 14px">
+                {{booking.date}}, {{booking.departure}}
               </div>
-            </div>
-            <div
-              class="col-12 d-flex mb-2 mb-sm-3 justify-content-start p-0 ticket-item"
-              style="font-size: 12px; color: #979797"
-            >
-              Garuda Indonesia, AB-221
-            </div>
-            <div
-              class="col-12 d-flex mb-0 justify-content-start p-0 ticket-item"
-              style="font-size: 12px; color: #979797"
-            >
-            <hr style="width: 100%; border: 1px #979797 solid">
-            </div>
-            <div class="col-12 p-0 ticket-item">
-              <b-navbar toggleable variant="light">
-                <div class="d-flex flex-row" style="font-size: 14px">
-                  <p
-                    class="mr-5 mb-0 align-items-center p-1"
-                    style="color: #979797"
-                  >
-                    status
-                  </p>
-                  <div
-                    class="p-1 pl-2 pr-2"
-                    style="
-                      background: #FF7F23;
-                      border-radius: 6px;
-                      color: white;
-                    "
-                  >
-                    Waiting for payment
+              <div class="col-12 mb-1 ticket-item" style="font-size: 14px">
+                <div class="d-flex flex-row">
+                  <h4>{{booking.origin_code}}</h4>
+                  <div class="mr-3 ml-3">
+                    <img src="../assets/icons/miniplane.svg" />
                   </div>
+                  <h4>{{booking.destination_code}}</h4>
                 </div>
-                <b-navbar-toggle
-                  target="navbar-toggle-collapse2"
-                  class="d-none d-sm-block"
-                >
-                  <template
-                    v-slot:default="{ expanded }"
-                    class="d-flex flex-row"
-                  >
-                    <p class="m-0 border-0 ml-auto" style="color: #2395ff">
-                      View details
-                      <b-icon v-if="expanded" icon="chevron-bar-up"></b-icon>
-                      <b-icon v-else icon="chevron-bar-down"></b-icon>
-                    </p>
-                  </template>
-                </b-navbar-toggle>
-                <b-collapse id="navbar-toggle-collapse2" is-nav>
-                  <b-navbar-nav class="mr-auto">
-                    <p style="color: #2395ff" class="mt-3">
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                      Provident, quia?
-                    </p>
-                  </b-navbar-nav>
-                </b-collapse>
-              </b-navbar>
-            </div>
-          </div>
-          <div class="row formprofile ticket">
-            <div class="col-12 mb-4 p-0 ticket-item" style="font-size: 14px">
-              Monday, 20 July'20 - 12:33
-            </div>
-            <div class="col-12 mb-1 ticket-item" style="font-size: 14px">
-              <div class="d-flex flex-row">
-                <h4>IDN</h4>
-                <div class="mr-3 ml-3">
-                  <img src="../assets/icons/miniplane.svg" />
-                </div>
-                <h4>JPN</h4>
               </div>
-            </div>
-            <div
-              class="col-12 d-flex mb-sm-3 justify-content-start p-0 ticket-item"
-              style="font-size: 12px; color: #979797"
-            >
-              Garuda Indonesia, AB-221
-            </div>
-            <div
-              class="col-12 d-flex mb-0 justify-content-start p-0 ticket-item"
-              style="font-size: 12px; color: #979797"
-            >
-            <hr style="width: 100%; border: 1px #979797 solid">
-            </div>
-            <div class="col-12 p-0 ticket-item">
-              <b-navbar toggleable variant="light">
-                <div class="d-flex flex-row" style="font-size: 14px">
-                  <p
-                    class="mr-5 mb-0 align-items-center p-1"
-                    style="color: #979797"
-                  >
-                    status
-                  </p>
-                  <div
-                    class="p-1 pl-2 pr-2"
-                    style="
-                      background: #4fcf4d;
-                      border-radius: 6px;
-                      color: white;
-                    "
-                  >
-                    Eticket issued
+              <div
+                class="col-12 d-flex mb-2 mb-sm-3 justify-content-start p-0 ticket-item"
+                style="font-size: 12px; color: #979797"
+              >
+                {{booking.airlines}}, {{booking.flight_code}}
+              </div>
+              <div
+                class="col-12 d-flex mb-0 justify-content-start p-0 ticket-item"
+                style="font-size: 12px; color: #979797"
+              >
+              <hr style="width: 100%; border: 1px #979797 solid">
+              </div>
+              <div class="col-12 p-0 ticket-item">
+                <b-navbar toggleable variant="light">
+                  <div class="d-flex flex-row" style="font-size: 14px">
+                    <p
+                      class="mr-5 mb-0 align-items-center p-1"
+                      style="color: #979797"
+                    >
+                      status
+                    </p>
+                    <div
+                      class="p-1 pl-2 pr-2"
+                      style="
+                        background: #FF7F23;
+                        border-radius: 6px;
+                        color: white;
+                      "
+                    >
+                      Waiting for payment
+                    </div>
+                    <b-btn variant="primary" class="ml-5" @click="tobookingpass(booking)">
+                      To Booking Pass
+                    </b-btn>
                   </div>
-                </div>
-                <b-navbar-toggle
-                  target="navbar-toggle-collapse3"
-                  class="d-none d-sm-block"
-                >
-                  <template
-                    v-slot:default="{ expanded }"
-                    class="d-flex flex-row"
+                  <b-navbar-toggle
+                    target="navbar-toggle-collapse2"
+                    class="d-none d-sm-block"
                   >
-                    <p class="m-0 border-0 ml-auto" style="color: #2395ff">
-                      View details
-                      <b-icon v-if="expanded" icon="chevron-bar-up"></b-icon>
-                      <b-icon v-else icon="chevron-bar-down"></b-icon>
-                    </p>
-                  </template>
-                </b-navbar-toggle>
-                <b-collapse id="navbar-toggle-collapse3" is-nav>
-                  <b-navbar-nav class="mr-auto">
-                    <p style="color: #2395ff" class="mt-3">
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                      Provident, quia?
-                    </p>
-                  </b-navbar-nav>
-                </b-collapse>
-              </b-navbar>
+                    <template
+                      v-slot:default="{ expanded }"
+                      class="d-flex flex-row"
+                    >
+                      <p class="m-0 border-0 ml-auto" style="color: #2395ff">
+                        View details
+                        <b-icon v-if="expanded" icon="chevron-bar-up"></b-icon>
+                        <b-icon v-else icon="chevron-bar-down"></b-icon>
+                      </p>
+                    </template>
+                  </b-navbar-toggle>
+                  <b-collapse id="navbar-toggle-collapse2" is-nav>
+                    <b-navbar-nav class="mr-auto">
+                      <p style="color: #2395ff" class="mt-3">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                        Provident, quia?
+                      </p>
+                    </b-navbar-nav>
+                  </b-collapse>
+                </b-navbar>
+              </div>
             </div>
           </div>
         </div>
@@ -234,7 +168,8 @@ export default {
   },
   data () {
     return {
-      url: url
+      url: url,
+      id_user: localStorage.getItem('id')
     }
   },
   methods: {
@@ -244,8 +179,18 @@ export default {
       localStorage.removeItem('id')
       this.router.push({ path: '/' })
     },
+    tobookingpass (data) {
+      // window.location = '/booking-pass'
+      // console.log(data)
+      const bookingId = data.booking_id
+      this.$router.push({
+        path: '/booking-pass',
+        query: { id_booking: bookingId }
+      })
+    },
     ...mapActions({
-      getUser: 'user/getUserDetail'
+      getUser: 'user/getUserDetail',
+      getBooking: 'booking/getDataBooking'
     })
   },
   mounted () {
@@ -254,13 +199,14 @@ export default {
         // this.setProduct(this.allproducts.products)
         // console.log(response)
         // this.dataUser = this.getdetaildata
-        console.log(this.dataUser)
+        // console.log(this.dataUser)
       })
-    this.getCity()
+    this.getBooking(this.id_user)
   },
   computed: {
     ...mapGetters({
-      getdetaildata: 'user/getallData'
+      getdetaildata: 'user/getallData',
+      getAllBooking: 'booking/getallBooking'
     })
   }
 }
