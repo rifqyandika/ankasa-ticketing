@@ -105,7 +105,7 @@ export default {
         })
     },
     sendEmail () {
-      console.log(this.emailtoReset)
+      console.log(typeof this.emailtoReset)
       return new Promise((resolve, reject) => {
         axios.post(`${url}/user/reset-pass`, this.emailtoReset)
           .then((response) => {

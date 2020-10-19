@@ -117,6 +117,9 @@
                     >
                       Waiting for payment
                     </div>
+                    <b-btn variant="primary" class="ml-5" @click="tobookingpass">
+                      To Booking Pass
+                    </b-btn>
                   </div>
                   <b-navbar-toggle
                     target="navbar-toggle-collapse2"
@@ -174,6 +177,9 @@ export default {
       localStorage.removeItem('refreshToken')
       localStorage.removeItem('id')
       this.router.push({ path: '/' })
+    },
+    tobookingpass () {
+      window.location = '/booking-pass'
     },
     ...mapActions({
       getUser: 'user/getUserDetail',

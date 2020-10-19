@@ -378,10 +378,13 @@
         </div>
         <div class="col-sm-8">
           <div class="col-12 justify-content-between d-flex flex-row">
-            <p>Salah ticket</p>
+            <p>Select ticket</p>
             <p>Sort by <img src="../assets/icons/siwtch-sort.png" /></p>
           </div>
           <form action="" @submit="proceedBooking">
+          <div class="col border" v-if="dataFlight.length === 0">
+            <h3>Not Found</h3>
+          </div>
           <div class="col-12 card-ticket" v-for="flight in dataFlight" :key="flight.id">
             <div class="col-12 d-flex flex-row">
               <div class="col-3"><img :src="`${url}/${flight.image_airlines}`" ></div>
