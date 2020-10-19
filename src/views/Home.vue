@@ -150,28 +150,9 @@
             <div class="row mt-3">
               <div class="col-12 teksMenu ">How many person?</div>
             </div>
-            <div class="row mt-1 mb-4">
-              <div class="col choseDeparture mx-3 py-3 d-flex">
+              <div class="col choseDeparture py-3 d-flex">
                   <input class="form-control" type="number" placeholder="Adult" v-model="dataForBook.adultPerson" style="width: 50%">
                   <input class="form-control" type="number" placeholder="Child" v-model="dataForBook.childPerson" style="width: 50%; margin-right: 10px">
-              </div>
-              <div class="row mt-1 mb-4">
-                <div class="col choseDeparture mx-3 py-3 d-flex">
-                  <input
-                    class="form-control"
-                    type="number"
-                    placeholder="Child"
-                    v-model="dataForBook.childPerson"
-                    style="width: 50%; margin-right: 10px"
-                  />
-                  <input
-                    class="form-control"
-                    type="number"
-                    placeholder="Adult"
-                    v-model="dataForBook.adultPerson"
-                    style="width: 50%"
-                  />
-                </div>
               </div>
               <div class="row mt-3">
                 <div class="col-12 teksMenu ">Which class do you want??</div>
@@ -237,7 +218,6 @@
                   </button>
                 </div>
               </div>
-            </div>
           </form>
         </div>
       </div>

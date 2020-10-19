@@ -27,10 +27,10 @@
                                       <h3>{{bookingDetail.destination_code}}</h3>
                                   </div>
                                 </div>
+                              <hr style="border: 2px black solid bg-success">
                             </div>
-                            <hr style="border: 2px black solid bg-success">
-                            <div class="left col-8">
-                                <div class="row p-5">
+                            <div class="left col-7 d-flex justify-content-center align-items-center">
+                                <div class="row p-0">
                                   <div class="col-6">
                                     <div class="m-2">
                                       <h6 class="m-0">Passenger</h6>
@@ -59,7 +59,7 @@
                                   </div>
                                 </div>
                             </div>
-                            <div class="left col-2 p-3">
+                            <div class="col-2 p-0 pt-3 pb-3">
                               <img src="../assets/icons/barcode.png" style="width:102px;height:300px" class="">
                             </div>
                         </div>

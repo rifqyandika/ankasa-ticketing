@@ -289,15 +289,16 @@ export default {
   methods: {
     ...mapActions({
       getUser: 'user/getUserDetail',
-      getCountry: 'city/getDataCountry'
+      getCountry: 'city/getDataCountry',
+      sendBooking: 'booking/postBooking'
     }),
     proceedPayment () {
       const dataPassenger = {
-        id_user: this.userDetail.id_user,
-        id_flight: this.databooking.id,
+        users_id: this.userDetail.id_user,
+        flight_id: this.databooking.id,
         title: this.detailPassenger.title,
         fullname: this.detailPassenger.fullname,
-        id_country: this.detailPassenger.nationality,
+        country_id: this.detailPassenger.nationality,
         insurance: 0,
         payment_status: 0,
         terminal: 4,
@@ -306,7 +307,7 @@ export default {
         adults: this.child,
         total: this.databooking.price * (this.child + this.adult)
       }
-      console.log(dataPassenger)
+      this.sendBooking(dataPassenger)
     }
   },
   mounted () {
