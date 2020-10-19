@@ -105,15 +105,14 @@ export default {
         })
     },
     sendEmail () {
-      console.log(this.emailtoReset)
+      const email = this.emailtoReset
       return new Promise((resolve, reject) => {
-        axios.post(`${url}/user/reset-pass`, this.emailtoReset)
+        axios.post(`${url}/user/reset-pass`, email)
           .then((response) => {
-            console.log(response.data)
-            // alert(response.data)
+            resolve(response.data)
           })
           .catch((err) => {
-            alert(err)
+            reject(err)
           })
       })
     },
