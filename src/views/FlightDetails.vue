@@ -33,6 +33,7 @@ background: #F5F6FA;"
                       class="ml-n2 form-control border-0"
                       placeholder="Name"
                       required
+                      v-model="userDetail.fullname"
                     />
                     <hr style="border: 1px solid #F5F6FA;margin-top:2px;" />
                   </div>
@@ -43,16 +44,18 @@ background: #F5F6FA;"
                       class="ml-n2 form-control border-0"
                       placeholder="Email"
                       required
+                      v-model="userDetail.email"
                     />
                     <hr style="border: 1px solid #F5F6FA;margin-top:2px;" />
                   </div>
                   <div class="col-12 ">
                     <label class="mt-3">Phone Number</label>
                     <input
-                      type="number"
+                      type="text"
                       class="ml-n2 form-control border-0"
-                      placeholder="Number"
+                      placeholder="Phone Number"
                       required
+                      v-model="userDetail.phone"
                     />
                     <hr style="border: 1px solid #F5F6FA;margin-top:2px;" />
                   </div>
@@ -64,9 +67,9 @@ background: #F5F6FA;"
                         <img src="..\assets\icons\Vector (6).png" alt="" />
                       </div>
                       <div class="col pl-0 my-auto pasengerDetails">
-                        <h7>
+                        <h6>
                           Make sure the customer data is correct.
-                        </h7>
+                        </h6>
                       </div>
                     </div>
                   </div>
@@ -104,17 +107,17 @@ background: #F5F6FA;"
           </div>
           <div class="row mt-3">
             <div class="col ml-2  ">
-              <a href="#" class="text-decoration-none"
-                ><img src="..\assets\icons\Group 1059.png" alt="" />
-                <h7 class="ml-2 refundable">Refundable</h7>
+              <a href="#" class="text-decoration-none d-flex"
+                ><img src="..\assets\icons\Group 1059.png" style="height: 20px; width: 20px;" />
+                <h6 class="ml-2 m-0 refundable">Refundable</h6>
               </a>
             </div>
           </div>
           <div class="row mt-3">
             <div class="col ml-2  ">
-              <a href="#" class="text-decoration-none"
-                ><img src="..\assets\icons\Group 1059.png" alt="" />
-                <h7 class="ml-2 refundable">Can reschedule</h7>
+              <a href="#" class="text-decoration-none d-flex"
+                ><img src="..\assets\icons\Group 1059.png" style="height: 20px; width: 20px;" />
+                <h6 class="ml-2 m-0 refundable">Can reschedule</h6>
               </a>
             </div>
           </div>
@@ -125,7 +128,7 @@ background: #F5F6FA;"
             </div>
             <div class="mr-2 my-auto col text-right totalRp">
               <b-navbar toggleable>
-                <h7 href="#" class="totalRp">{{databooking.price * person}}</h7>
+                <h6 href="#" class="totalRp">{{databooking.price * (child + adult)}}</h6>
 
                 <b-navbar-toggle target="navbar-toggle-collapse">
                   <template v-slot:default="{ expanded }">
@@ -154,10 +157,10 @@ background: #F5F6FA;"
         <div class="col-8 boxperson pb-4 ">
           <div class="row form-group mx-2 my-2 ">
             <div class="col-12">
-              <form @submit.prevent="onLogin">
+              <form >
                 <div class="row boxPassenger mt-3">
                   <div class="col-6 mt-3 pasengerDetails my-3">
-                    Passenger : {{ person }}
+                    Passenger : {{ (child + adult) }}
                   </div>
                   <div class="col mx-3 pasengerDetails text-right my-3">
                     <div class="row  justify-content-end">
@@ -175,13 +178,14 @@ background: #F5F6FA;"
                 </div>
                 <div class="row ">
                   <div class="col-12 ">
-                    <label class="mt-4">Tittle</label>
-                    <input
-                      type="text"
-                      class="ml-n2 form-control border-0"
-                      placeholder="Name"
-                      required
-                    />
+                    <label class="mt-4">Title</label>
+                    <div class="col-12 d-flex p-0">
+                      <select class="custom-select custom-select-sm col border-0" v-model="detailPassenger.title">
+                      <option value="Mr.">Mr</option>
+                      <option value="Mrs.">Mrs</option>
+                      <option value="Ms">Ms</option>
+                    </select>
+                    </div>
                     <hr style="border: 1px solid #F5F6FA;margin-top:2px;" />
                   </div>
                   <div class="col-12 ">
@@ -189,22 +193,22 @@ background: #F5F6FA;"
                     <input
                       type="text"
                       class="ml-n2 form-control border-0"
-                      placeholder="Email"
+                      placeholder="Full Name"
                       required
+                      v-model="detailPassenger.fullname"
                     />
                     <hr style="border: 1px solid #F5F6FA;margin-top:2px;" />
                   </div>
                   <div class="col-12 ">
-                    <label class="mt-3 ml-0">Nationallity</label>
+                    <label class="mt-4">Nationality</label>
+                    <div class="col-12 d-flex p-0">
+                      <select class="custom-select custom-select-sm col border-0" v-model="detailPassenger.nationality"
+                      >
+                      <option :value="country.id"
+                      v-for="country in getdataCountry" :key="country.id">{{country.name}}</option>
+                    </select>
+                    </div>
                   </div>
-                  <b-dropdown size="md" variant="p">
-                    <template v-slot:button-content
-                      >Indonesia<span class="sr-only">Search</span>
-                    </template>
-                    <b-dropdown-item href="#">Jamaica</b-dropdown-item>
-                    <b-dropdown-item href="#">Afrika</b-dropdown-item>
-                    <b-dropdown-item href="#">Simalakama</b-dropdown-item>
-                  </b-dropdown>
                   <hr style="border: 1px solid #F5F6FA;margin-top:2px;" />
                 </div>
               </form>
@@ -224,7 +228,6 @@ background: #F5F6FA;"
                   <form @submit.prevent="onLogin">
                     <b-form-checkbox
                       v-model="checked"
-                      :indeterminate.sync="indeterminate"
                     >
                       <p class=" mt-1 travelText">Travel Insurance</p>
                     </b-form-checkbox>
@@ -245,7 +248,7 @@ background: #F5F6FA;"
       </div>
       <div class="row">
         <div class="col-8 proceed text-center mt-4">
-          <button type="submit" class="btn">Proceed to Payment</button>
+          <button type="button"  class="btn" @click="proceedPayment">Proceed to Payment</button>
         </div>
       </div>
     </div>
@@ -257,6 +260,7 @@ background: #F5F6FA;"
 
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import { mapActions, mapGetters } from 'vuex'
 const { url } = require('../helper/env')
 
 export default {
@@ -270,9 +274,54 @@ export default {
       origin: this.$route.query.origin,
       destination: this.$route.query.destination,
       datte: this.$route.query.date,
-      person: this.$route.query.totalPerson,
-      url: url
+      child: parseInt(this.$route.query.childPerson),
+      adult: parseInt(this.$route.query.adultPerson),
+      url: url,
+      checked: null,
+      userDetail: {},
+      detailPassenger: {
+        title: '',
+        fullname: '',
+        nationality: null
+      }
     }
+  },
+  methods: {
+    ...mapActions({
+      getUser: 'user/getUserDetail',
+      getCountry: 'city/getDataCountry'
+    }),
+    proceedPayment () {
+      const dataPassenger = {
+        id_user: this.userDetail.id_user,
+        id_flight: this.databooking.id,
+        title: this.detailPassenger.title,
+        fullname: this.detailPassenger.fullname,
+        id_country: this.detailPassenger.nationality,
+        insurance: 0,
+        payment_status: 0,
+        terminal: 4,
+        gate: 2,
+        child: this.adult,
+        adults: this.child,
+        total: this.databooking.price * (this.child + this.adult)
+      }
+      console.log(dataPassenger)
+    }
+  },
+  mounted () {
+    this.getUser().then((res) => {
+      this.userDetail = this.getdetaildata
+    })
+    this.getCountry().then((res) => {
+      console.log(this.getdataCountry)
+    })
+  },
+  computed: {
+    ...mapGetters({
+      getdetaildata: 'user/getallData',
+      getdataCountry: 'city/getallCountry'
+    })
   }
 }
 </script>

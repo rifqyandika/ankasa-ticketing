@@ -123,8 +123,8 @@
             </div>
             <div class="row mt-1 mb-4">
               <div class="col choseDeparture mx-3 py-3 d-flex">
-                  <input class="form-control" type="number" placeholder="Child" v-model="dataForBook.childPerson" style="width: 50%; margin-right: 10px">
                   <input class="form-control" type="number" placeholder="Adult" v-model="dataForBook.adultPerson" style="width: 50%">
+                  <input class="form-control" type="number" placeholder="Child" v-model="dataForBook.childPerson" style="width: 50%; margin-right: 10px">
               </div>
             </div>
             <div class="row mt-3">
@@ -622,8 +622,8 @@ export default {
         origin: '',
         destination: '',
         date: '',
-        childPerson: '',
-        adultPerson: '',
+        childPerson: null,
+        adultPerson: null,
         classFlight: 0
       }
     }
@@ -634,10 +634,10 @@ export default {
       parseInt(this.dataForBook.classFlight)
       this.getFlight(this.dataForBook)
         .then((response) => {
-          const adultPerson = parseInt(this.dataForBook.adultPerson)
-          const childPerson = parseInt(this.dataForBook.childPerson)
-          const person = adultPerson + childPerson
-          this.$router.push({ path: '/search', query: { origin: this.dataForBook.origin, destination: this.dataForBook.destination, date: this.dataForBook.date, totalPerson: person } })
+          const adultPerson = !this.dataForBook.adultPerson ? 0 : this.dataForBook.adultPerson
+          const childPerson = !this.dataForBook.childPerson ? 0 : this.dataForBook.childPerson
+          // const person = (parseInt(adultPerson) + parseInt(childPerson))
+          this.$router.push({ path: '/search', query: { origin: this.dataForBook.origin, destination: this.dataForBook.destination, date: this.dataForBook.date, adultPerson: adultPerson, childPerson: childPerson } })
         })
     },
     ...mapActions({

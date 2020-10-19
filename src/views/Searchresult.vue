@@ -420,7 +420,7 @@
                   <div>{{flight.price}}</div>
                 </div>
                 <div class="col d-flex" >
-                  <button type="submit" class="btn btn-primary btnselect ml-auto" @click.prevent="proceedBooking(flight.code, flight.airlines, flight.image_airlines, flight.departure, flight.arrived, flight.price)">
+                  <button type="submit" class="btn btn-primary btnselect ml-auto" @click.prevent="proceedBooking(flight.id, flight.code, flight.airlines, flight.image_airlines, flight.departure, flight.arrived, flight.price)">
                     Select
                   </button>
                 </div>
@@ -484,15 +484,17 @@ export default {
       origin: this.$route.query.origin,
       destination: this.$route.query.destination,
       datte: this.$route.query.date,
-      person: this.$route.query.totalPerson
+      childPerson: this.$route.query.childPerson,
+      adultPerson: this.$route.query.adultPerson
     }
   },
   methods: {
     ...mapActions({
       getFlight: 'flight/getDataFlight'
     }),
-    proceedBooking (code, airlines, image, departure, arrived, price) {
+    proceedBooking (id, code, airlines, image, departure, arrived, price) {
       const detailbooking = {
+        id,
         code,
         airlines,
         image,
@@ -501,7 +503,7 @@ export default {
         price
       }
       localStorage.setItem('data', JSON.stringify(detailbooking))
-      this.$router.push({ path: '/flightdetails', query: { origin: this.origin, destination: this.destination, date: this.datte, totalPerson: this.person } })
+      this.$router.push({ path: '/flightdetails', query: { origin: this.origin, destination: this.destination, date: this.datte, childPerson: this.childPerson, adultPerson: this.adultPerson } })
     }
   },
   computed: {
