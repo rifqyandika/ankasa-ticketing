@@ -117,7 +117,7 @@
                     >
                       Waiting for payment
                     </div>
-                    <b-btn variant="primary" class="ml-5" @click="tobookingpass">
+                    <b-btn variant="primary" class="ml-5" @click="tobookingpass(booking)">
                       To Booking Pass
                     </b-btn>
                   </div>
@@ -168,7 +168,8 @@ export default {
   },
   data () {
     return {
-      url: url
+      url: url,
+      id_user: localStorage.getItem('id')
     }
   },
   methods: {
@@ -178,8 +179,14 @@ export default {
       localStorage.removeItem('id')
       this.router.push({ path: '/' })
     },
-    tobookingpass () {
-      window.location = '/booking-pass'
+    tobookingpass (data) {
+      // window.location = '/booking-pass'
+      // console.log(data)
+      const bookingId = data.booking_id
+      this.$router.push({
+        path: '/booking-pass',
+        query: { id_booking: bookingId }
+      })
     },
     ...mapActions({
       getUser: 'user/getUserDetail',
@@ -194,7 +201,7 @@ export default {
         // this.dataUser = this.getdetaildata
         // console.log(this.dataUser)
       })
-    this.getBooking()
+    this.getBooking(this.id_user)
   },
   computed: {
     ...mapGetters({
