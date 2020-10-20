@@ -120,6 +120,8 @@
                     <b-btn variant="primary" class="ml-5" @click="tobookingpass(booking)">
                       To Booking Pass
                     </b-btn>
+                    <button class="ml-5 btn btn-danger btn-sm" @click="deleteBookingClick(booking)">delete</button>
+
                   </div>
                   <b-navbar-toggle
                     target="navbar-toggle-collapse2"
@@ -189,9 +191,26 @@ export default {
       })
     },
     ...mapActions({
+      deleteBooking: 'booking/deleteBooking',
       getUser: 'user/getUserDetail',
       getBooking: 'booking/getDataBooking'
-    })
+    }),
+    deleteBookingClick (booking) {
+      const deleteConfirm = confirm('Yakin mau di delete ?')
+      if (deleteConfirm === true) {
+        const id = booking.booking_id
+        this.deleteBooking(id)
+          .then((response) => {
+            alert(response.data.message)
+            window.location.reload()
+          })
+          .catch((err) => {
+            alert(err)
+          })
+      } else {
+        alert('canceled')
+      }
+    }
   },
   mounted () {
     this.getUser()

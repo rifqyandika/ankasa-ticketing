@@ -64,6 +64,17 @@ const actions = {
           console.log(err)
         })
     })
+  },
+  deleteBooking (context, payload) {
+    return new Promise((resolve, reject) => {
+      axios.delete(`${url}/booking/delete/${payload}`)
+        .then((response) => {
+          console.log(response.data.data)
+          resolve(response)
+        })
+        .catch(() => {
+        })
+    })
   }
 }
 
